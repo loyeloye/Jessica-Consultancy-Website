@@ -3,7 +3,7 @@ import { UPLOADS_BUCKET } from "@/lib/supabase/config";
 import { appendRecord } from "@/lib/storage";
 import { saveUpload, type UploadResult, ALLOWED_IMAGE_TYPES } from "@/lib/uploads";
 
-export type SubmissionKind = "booking" | "talent" | "contact";
+export type SubmissionKind = "booking" | "talent" | "creative" | "contact";
 
 export type StoredFile = {
   path?: string;
@@ -12,9 +12,13 @@ export type StoredFile = {
   size: number;
 };
 
-const FILE_TABLE: Record<SubmissionKind, "bookings.json" | "talent.json" | "contact.json"> = {
+const FILE_TABLE: Record<
+  SubmissionKind,
+  "bookings.json" | "talent.json" | "creative.json" | "contact.json"
+> = {
   booking: "bookings.json",
   talent: "talent.json",
+  creative: "creative.json",
   contact: "contact.json",
 };
 

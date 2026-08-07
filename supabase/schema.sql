@@ -157,7 +157,7 @@ create policy "settings admin all" on public.settings
 -- directly. Inserts happen server-side via the service-role key.
 create table if not exists public.submissions (
   id         uuid primary key default gen_random_uuid(),
-  kind       text not null check (kind in ('booking','talent','contact')),
+  kind       text not null check (kind in ('booking','talent','creative','contact')),
   name       text,
   email      text,
   data       jsonb not null default '{}'::jsonb,
@@ -165,6 +165,13 @@ create table if not exists public.submissions (
   read_at    timestamptz,
   created_at timestamptz not null default now()
 );
+
+-- Re-running this file against a database created before the 'creative'
+-- kind existed won't retroactively widen the check above (create table if
+-- not exists is a no-op on an existing table), so drop and recreate it here.
+alter table public.submissions drop constraint if exists submissions_kind_check;
+alter table public.submissions add constraint submissions_kind_check
+  check (kind in ('booking','talent','creative','contact'));
 
 create index if not exists submissions_kind_created_idx
   on public.submissions (kind, created_at desc);

@@ -15,7 +15,7 @@ async function ensureDataDir() {
  * hosted database) before going to production. See README for details.
  */
 export async function appendRecord<T extends Record<string, unknown>>(
-  file: "bookings.json" | "talent.json" | "contact.json",
+  file: "bookings.json" | "talent.json" | "creative.json" | "contact.json",
   record: T
 ) {
   await ensureDataDir();

@@ -16,6 +16,7 @@ type RecentRow = {
 const KIND_LABEL: Record<string, string> = {
   booking: "Booking inquiry",
   talent: "Talent registration",
+  creative: "Creative registration",
   contact: "General inquiry",
 };
 
@@ -62,8 +63,8 @@ export default async function AdminDashboard() {
 
         {rows.length === 0 ? (
           <EmptyState>
-            No inquiries yet. Submissions from the booking, talent, and contact forms will
-            appear here.
+            No inquiries yet. Submissions from the booking, talent, creative, and contact
+            forms will appear here.
           </EmptyState>
         ) : (
           <Card className="p-0">

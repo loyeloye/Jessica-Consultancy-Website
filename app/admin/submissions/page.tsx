@@ -9,7 +9,7 @@ type FileRef = { path?: string; url?: string; name?: string; size?: number };
 
 type Row = {
   id: string;
-  kind: "booking" | "talent" | "contact";
+  kind: "booking" | "talent" | "creative" | "contact";
   name: string | null;
   email: string | null;
   data: Record<string, unknown>;
@@ -21,6 +21,7 @@ type Row = {
 const KIND_LABEL: Record<Row["kind"], string> = {
   booking: "Booking inquiry",
   talent: "Talent registration",
+  creative: "Creative registration",
   contact: "General inquiry",
 };
 
@@ -39,10 +40,14 @@ const FIELD_LABEL: Record<string, string> = {
   waist: "Waist",
   hips: "Hips",
   shoeSize: "Shoe size",
+  roles: "Role(s)",
 };
 
 function readable(value: unknown): string {
   if (value === null || value === undefined) return "";
+  if (Array.isArray(value)) {
+    return value.filter(Boolean).join(", ");
+  }
   if (typeof value === "object") {
     return Object.entries(value as Record<string, unknown>)
       .filter(([, v]) => v)
@@ -67,7 +72,7 @@ export default async function AdminSubmissionsPage({
     .order("created_at", { ascending: false })
     .limit(200);
 
-  if (filter === "booking" || filter === "talent" || filter === "contact") {
+  if (filter === "booking" || filter === "talent" || filter === "creative" || filter === "contact") {
     query = query.eq("kind", filter);
   }
 
@@ -91,6 +96,7 @@ export default async function AdminSubmissionsPage({
     { key: "", label: "All" },
     { key: "booking", label: "Bookings" },
     { key: "talent", label: "Talent" },
+    { key: "creative", label: "Creative" },
     { key: "contact", label: "General" },
   ];
 
@@ -98,7 +104,7 @@ export default async function AdminSubmissionsPage({
     <>
       <AdminHeading
         title="Inquiries"
-        description="Everything submitted through the booking, talent registration, and contact forms."
+        description="Everything submitted through the booking, talent, creative, and contact forms."
       />
 
       <div className="mb-6 flex flex-wrap gap-2">

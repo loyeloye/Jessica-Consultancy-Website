@@ -14,7 +14,7 @@ export function SiteFooter({
     { href: "/work", label: "Work" },
     ...(showBlog ? [{ href: "/blog", label: "Journal" }] : []),
     { href: "/book", label: `Book ${settings.name}` },
-    { href: "/talent", label: "Register as Talent" },
+    { href: "/talent", label: "Register (Talent / Creative)" },
   ];
 
   return (

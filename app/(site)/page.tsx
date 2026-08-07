@@ -99,7 +99,7 @@ export default async function Home() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <MagneticButton href="/book">Book a Production</MagneticButton>
             <MagneticButton href="/talent" variant="outline">
-              Register as Talent
+              Register — Talent / Creative
             </MagneticButton>
           </div>
           <p className="mt-6 text-xs uppercase tracking-wider text-paper/40">

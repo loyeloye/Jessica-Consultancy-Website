@@ -52,7 +52,7 @@ export function SiteHeader({ name, showBlog }: { name: string; showBlog: boolean
             href="/talent"
             className="focus-ring text-sm tracking-wide text-paper/80 transition-colors hover:text-accent"
           >
-            Register as Talent
+            Register
           </Link>
           <Link
             href="/book"
@@ -87,7 +87,7 @@ export function SiteHeader({ name, showBlog }: { name: string; showBlog: boolean
       {open && (
         <nav id="mobile-nav" className="border-t border-line px-5 pb-6 pt-2 md:hidden">
           <ul className="flex flex-col gap-1">
-            {[...navLinks, { href: "/talent", label: "Register as Talent" }].map((link) => (
+            {[...navLinks, { href: "/talent", label: "Register" }].map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

@@ -77,7 +77,7 @@ export function Hero({
         <div className="mt-10 flex flex-wrap gap-4">
           <MagneticButton href="/book">Book a Production</MagneticButton>
           <MagneticButton href="/talent" variant="outline">
-            Register as Talent
+            Register — Talent / Creative
           </MagneticButton>
         </div>
       </div>
