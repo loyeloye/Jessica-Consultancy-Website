@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { getPublishedPosts, getSettings } from "@/lib/content";
 import { excerptFrom } from "@/lib/markdown";
 
@@ -56,16 +56,14 @@ export default async function BlogIndexPage() {
                     aria-label={post.title}
                   >
                     {post.coverImage && (
-                      <div className="relative mb-5 aspect-[3/2] w-full overflow-hidden rounded-sm bg-ink">
-                        <Image
-                          src={post.coverImage}
-                          alt={post.coverAlt || ""}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 33vw"
-                          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:grayscale-0 group-focus-visible:grayscale-0 [@media(hover:none)]:grayscale-0"
-                          unoptimized
-                        />
-                      </div>
+                      <HoverChromaTile
+                        src={post.coverImage}
+                        alt={post.coverAlt || ""}
+                        aspect="aspect-[3/2]"
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        unoptimized
+                        className="mb-5"
+                      />
                     )}
                     {post.publishedAt && (
                       <p className="text-xs uppercase tracking-wider text-paper/45">

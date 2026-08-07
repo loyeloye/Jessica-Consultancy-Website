@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState, type MouseEvent } from "react";
 
 type Props = {
   src: string;
@@ -9,6 +12,7 @@ type Props = {
   aspect?: string;
   sizes?: string;
   priority?: boolean;
+  unoptimized?: boolean;
 };
 
 /**
@@ -17,10 +21,12 @@ type Props = {
  * the reveal also fires on keyboard focus — the tile itself is never made
  * focusable, since a focusable element with no action is an a11y trap.
  *
- * Touch devices (iPad, iPhone) never fire `:hover` at all, so the effect
- * would otherwise leave every image stuck in grayscale with no way to see
- * it in colour. `[@media(hover:none)]:grayscale-0` renders those devices
- * straight into the "revealed" end state instead.
+ * Touch devices never fire `:hover`, so the effect needs a touch equivalent
+ * rather than just being skipped: the first tap reveals colour (the same
+ * visual moment as a desktop hover) instead of navigating, and only a
+ * second tap follows the link. This only intercepts taps that land on the
+ * image itself — a sibling title/excerpt outside this component still
+ * navigates on the first tap, matching how hover never blocks a click.
  */
 export function HoverChromaTile({
   src,
@@ -31,9 +37,24 @@ export function HoverChromaTile({
   aspect = "aspect-[4/5]",
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   priority = false,
+  unoptimized = false,
 }: Props) {
+  const [revealed, setRevealed] = useState(false);
+
+  function handleClick(e: MouseEvent<HTMLDivElement>) {
+    if (revealed) return;
+    if (!window.matchMedia("(hover: none)").matches) return;
+    e.preventDefault();
+    setRevealed(true);
+  }
+
   return (
     <div
+      onClick={handleClick}
+      // Without this, two taps close together can be read as a double-tap-
+      // to-zoom gesture instead of two clicks, which would swallow the
+      // second tap that's supposed to navigate.
+      style={{ touchAction: "manipulation" }}
       className={`group relative ${aspect} w-full overflow-hidden rounded-sm bg-ink-soft ${className}`}
     >
       {src ? (
@@ -44,7 +65,10 @@ export function HoverChromaTile({
           sizes={sizes}
           priority={priority}
           loading={priority ? undefined : "lazy"}
-          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0 [@media(hover:none)]:grayscale-0"
+          unoptimized={unoptimized}
+          className={`object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0 ${
+            revealed ? "scale-[1.04] grayscale-0" : ""
+          }`}
         />
       ) : (
         // A campaign saved without a hero image yet — keep the layout intact
