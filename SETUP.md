@@ -48,28 +48,39 @@ sign-up — to add another person, create them here the same way.
 ## 4. Collect the keys
 
 In Supabase, go to **Project settings** (bottom of the left sidebar) →
-**API**. You'll see a page with several values on it — you need three of
-them, copied one at a time.
+**API Keys**. You need three values from two different pages:
+
+- On the **API Keys** page, under **Publishable and secret API keys**:
+  - **Publishable key** (starts `sb_publishable_...`) — click its copy icon.
+  - **Secret keys** section — click the eye icon to reveal it, then copy it
+    (starts `sb_secret_...`).
+  - Ignore the **Legacy anon, service_role API keys** tab — you don't need it.
+- On the **General** page (just above API Keys in that same menu): the
+  **Project URL**, near the top.
+
+> Supabase renamed these keys at some point — older docs (and screenshots)
+> call them `anon` `public` and `service_role` instead of "Publishable" and
+> "Secret". They're the same thing; use whichever your dashboard shows you.
 
 ## 5. Add them to Vercel
 
 Now switch to your **Vercel** project → **Settings → Environment Variables**.
 This page lets you add a **Key** (a name) and a **Value** (the thing it
-equals). For each row below: copy the value from the Supabase API page,
-then in Vercel type the exact key name shown, paste the value in, and save.
-Do this three times:
+equals). For each row below: copy the value from Supabase, then in Vercel
+type the exact key name shown, paste the value in, and save. Do this three
+times:
 
-| In Vercel, set this key →       | To the value Supabase calls →           |
-| -------------------------------- | ---------------------------------------- |
-| `NEXT_PUBLIC_SUPABASE_URL`       | **Project URL**                          |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY`  | **Project API keys** → `anon` `public`   |
-| `SUPABASE_SERVICE_ROLE_KEY`      | **Project API keys** → `service_role`    |
+| In Vercel, set this key →       | To this Supabase value →                        |
+| -------------------------------- | ------------------------------------------------ |
+| `NEXT_PUBLIC_SUPABASE_URL`       | Project URL (General page)                       |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`  | Publishable key (`sb_publishable_...`)            |
+| `SUPABASE_SERVICE_ROLE_KEY`      | Secret key (`sb_secret_...`)                      |
 
 For each one, tick all three boxes — **Production**, **Preview**, and
 **Development** — so it applies everywhere.
 
-> ⚠️ The `service_role` key is powerful — it can bypass every security rule
-> on the database. Only ever paste it into Vercel's environment variables
+> ⚠️ The secret key is powerful — it can bypass every security rule on the
+> database. Only ever paste it into Vercel's environment variables
 > (server-side). Never put it in a variable starting with `NEXT_PUBLIC_`,
 > never paste it into the site itself, and never send it over email or chat.
 
