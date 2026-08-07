@@ -75,10 +75,21 @@ to enable notification emails to `NOTIFY_EMAIL`.
   on campaign/portfolio tiles. All motion respects
   `prefers-reduced-motion` and is implemented with plain CSS
   transitions/transforms — no animation library, no third-party embeds.
-- Campaign imagery is currently placeholder gradient tiles (see
-  `components/HoverChromaTile.tsx`) since no campaign photography assets
-  were provided. Pass a `src` prop once real photography is available and
-  it will render as a real image with the same hover treatment.
+## Imagery
+
+Campaign and highlight photography lives in `public/images/`, extracted
+from Jessica's portfolio deck and re-encoded as WebP (max 1400px, ~1.1MB
+total for 19 images). Every image is referenced from `content/site.ts`
+with its alt text, so swapping or adding photography is a content-file
+change, not a component change:
+
+- `campaigns/<slug>-NN.webp` — per-campaign hero (`image`) and `gallery`
+- `highlights/NN.webp` — the "More from the archive" grid
+- `about/portrait.webp` — the About page portrait
+
+All photography renders through `components/HoverChromaTile.tsx`
+(grayscale at rest, colour on hover) and `next/image` for responsive
+sizing and lazy loading.
 
 ## What's intentionally out of scope
 

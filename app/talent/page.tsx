@@ -19,7 +19,7 @@ export default function TalentPage() {
         <p className="mt-6 text-base leading-relaxed text-paper/70">
           Models, actors, presenters, and lifestyle talent — register below for
           consideration on upcoming commercial, fashion, and editorial bookings across
-          the UAE and internationally.
+          the Middle East, Asia, and internationally.
         </p>
 
         <div className="mt-12">

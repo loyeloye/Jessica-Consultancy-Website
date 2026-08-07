@@ -6,12 +6,6 @@ import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { MagneticButton } from "@/components/MagneticButton";
 import { stats, services, campaigns, heroCredibilityLine, siteConfig } from "@/content/site";
 
-const highlightGradients = [
-  "from-neutral-800 via-neutral-600 to-neutral-900",
-  "from-stone-700 via-stone-500 to-stone-800",
-  "from-zinc-800 via-zinc-600 to-zinc-900",
-];
-
 export default function Home() {
   return (
     <>
@@ -36,12 +30,19 @@ export default function Home() {
             description="A sample of the commercial, fashion, and lifestyle campaigns Jessica has helped bring to set and to screen."
           />
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {campaigns.map((c, i) => (
-              <Link key={c.slug} href={`/work#${c.slug}`} className="block">
+            {campaigns.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/work#${c.slug}`}
+                className="focus-ring group block"
+                aria-label={`${c.client} — ${c.category}`}
+              >
                 <HoverChromaTile
+                  src={c.image.src}
+                  alt={c.image.alt}
                   label={c.client}
                   sublabel={c.category}
-                  gradient={highlightGradients[i % highlightGradients.length]}
+                  sizes="(max-width: 640px) 100vw, 33vw"
                 />
               </Link>
             ))}
@@ -95,7 +96,7 @@ export default function Home() {
             </MagneticButton>
           </div>
           <p className="mt-6 text-xs uppercase tracking-wider text-paper/40">
-            {siteConfig.location} — available for UAE and international productions
+            {siteConfig.location} — available across the Middle East, Asia, and internationally
           </p>
         </Container>
       </section>

@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { MagneticButton } from "@/components/MagneticButton";
-import { aboutHighlights, aboutConsultingNote, sectors, siteConfig } from "@/content/site";
+import { HoverChromaTile } from "@/components/HoverChromaTile";
+import {
+  aboutHighlights,
+  aboutConsultingNote,
+  aboutPortrait,
+  sectors,
+  siteConfig,
+} from "@/content/site";
 
 export const metadata: Metadata = {
   title: `About — ${siteConfig.name}`,
@@ -13,23 +20,32 @@ export default function AboutPage() {
   return (
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-28">
-        <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">About</p>
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-            A calm, organized hand behind ambitious shoots.
-          </h1>
-          <p className="mt-8 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Jessica is a Dubai-based production coordinator, shoot coordinator, and
-            commercial and fashion talent booker, with additional experience in
-            creative direction. She works across commercial, fashion, branded content,
-            and editorial productions — planning the logistics, booking the talent,
-            and steering the on-set details that turn a brief into a finished
-            campaign.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Her work spans {sectors.join(", ").toLowerCase()}, for clients ranging
-            from international banks to fashion houses and lifestyle brands.
-          </p>
+        <Container className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">About</p>
+            <h1 className="font-display text-4xl leading-tight sm:text-5xl">
+              A calm, organized hand behind ambitious shoots.
+            </h1>
+            <p className="mt-8 text-base leading-relaxed text-paper/75 sm:text-lg">
+              Jessica is a Dubai-based production coordinator, shoot coordinator, and
+              commercial and fashion talent booker, with additional experience in
+              creative direction. She works across commercial, fashion, branded content,
+              and editorial productions — planning the logistics, booking the talent,
+              and steering the on-set details that turn a brief into a finished
+              campaign.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-paper/75 sm:text-lg">
+              Her work spans {sectors.join(", ").toLowerCase()}, for clients ranging
+              from international banks to fashion houses and lifestyle brands.
+            </p>
+          </div>
+          <HoverChromaTile
+            src={aboutPortrait.src}
+            alt={aboutPortrait.alt}
+            aspect="aspect-[4/5]"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            priority
+          />
         </Container>
       </section>
 
