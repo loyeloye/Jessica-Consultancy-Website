@@ -18,12 +18,23 @@ Budget about 15 minutes. Everything below is on free tiers.
 
 ## 2. Create the tables
 
-1. In the Supabase dashboard, open **SQL Editor → New query**.
-2. Paste the entire contents of [`supabase/schema.sql`](./supabase/schema.sql).
-3. Click **Run**.
+This step runs one file of setup code once, in Supabase's SQL editor. You're
+copying text from GitHub and pasting it into Supabase — no editing needed.
 
-That creates the tables, the storage buckets, and the security rules. It's
-safe to re-run if you need to.
+1. Open this link:
+   [`supabase/schema.sql` on GitHub](https://github.com/loyeloye/Jessica-Consultancy-Website/blob/claude/jessica-chukwu-website-1dev6w/supabase/schema.sql)
+2. Near the top right of the file, there's a small clipboard/copy icon —
+   click it to copy the whole file. (If you don't see it, click **Raw**
+   instead, then select all the text on that page — Ctrl+A on Windows,
+   Cmd+A on Mac — and copy it — Ctrl+C or Cmd+C.)
+3. Go to your Supabase project → **SQL Editor** in the left sidebar →
+   **New query**.
+4. Click into the empty text box and paste — Ctrl+V or Cmd+V.
+5. Click the green **Run** button (bottom right).
+
+You should see "Success. No rows returned." That means it worked — it just
+created the tables, the storage buckets, and the security rules. It's safe
+to run again if you're ever unsure whether it worked.
 
 ## 3. Create the login
 
@@ -36,25 +47,39 @@ sign-up — to add another person, create them here the same way.
 
 ## 4. Collect the keys
 
-Go to **Project settings → API** and copy three values:
-
-| Supabase label      | Environment variable            |
-| ------------------- | ------------------------------- |
-| Project URL         | `NEXT_PUBLIC_SUPABASE_URL`      |
-| `anon` `public` key | `NEXT_PUBLIC_SUPABASE_ANON_KEY` |
-| `service_role` key  | `SUPABASE_SERVICE_ROLE_KEY`     |
-
-> The `service_role` key bypasses all security rules. Keep it server-side
-> only — never put it in a `NEXT_PUBLIC_` variable and never commit it.
+In Supabase, go to **Project settings** (bottom of the left sidebar) →
+**API**. You'll see a page with several values on it — you need three of
+them, copied one at a time.
 
 ## 5. Add them to Vercel
 
-In your Vercel project: **Settings → Environment Variables**. Add all three
-for **Production**, **Preview**, and **Development**, then **redeploy** —
-env vars are only picked up by a new build.
+Now switch to your **Vercel** project → **Settings → Environment Variables**.
+This page lets you add a **Key** (a name) and a **Value** (the thing it
+equals). For each row below: copy the value from the Supabase API page,
+then in Vercel type the exact key name shown, paste the value in, and save.
+Do this three times:
 
-For local development, copy `.env.example` to `.env.local` and fill in the
-same values.
+| In Vercel, set this key →       | To the value Supabase calls →           |
+| -------------------------------- | ---------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`       | **Project URL**                          |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`  | **Project API keys** → `anon` `public`   |
+| `SUPABASE_SERVICE_ROLE_KEY`      | **Project API keys** → `service_role`    |
+
+For each one, tick all three boxes — **Production**, **Preview**, and
+**Development** — so it applies everywhere.
+
+> ⚠️ The `service_role` key is powerful — it can bypass every security rule
+> on the database. Only ever paste it into Vercel's environment variables
+> (server-side). Never put it in a variable starting with `NEXT_PUBLIC_`,
+> never paste it into the site itself, and never send it over email or chat.
+
+Once all three are saved, go to **Deployments**, open the latest one, and
+click **Redeploy** — environment variables only take effect on a new build,
+they won't apply to a deployment that's already running.
+
+For local development on your own machine, copy `.env.example` to a new
+file named `.env.local` in the project folder and fill in the same three
+values there.
 
 ## 6. Sign in
 
