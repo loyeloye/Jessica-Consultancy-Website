@@ -84,6 +84,10 @@ export async function savePost(
   revalidatePath("/blog");
   revalidatePath(`/blog/${slug}`);
   revalidatePath("/admin/posts");
+  // Publishing/unpublishing can flip whether "Journal" shows in the nav,
+  // which is computed in the (site) layout shared by every public page —
+  // revalidating just /blog leaves that stale everywhere else.
+  revalidatePath("/", "layout");
   redirect("/admin/posts");
 }
 
@@ -98,6 +102,7 @@ export async function deletePost(formData: FormData): Promise<void> {
   if (data?.slug) revalidatePath(`/blog/${data.slug}`);
   revalidatePath("/blog");
   revalidatePath("/admin/posts");
+  revalidatePath("/", "layout");
 }
 
 /* ------------------------------------------------------------------ media */
