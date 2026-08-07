@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendNotification } from "@/lib/mailer";
-import { storeFile, storeSubmission, type StoredFile } from "@/lib/submissions";
-import { ALLOWED_BRIEF_TYPES } from "@/lib/uploads";
+import { storeSubmission } from "@/lib/submissions";
 import { asString, isNonEmpty, isValidEmail } from "@/lib/validate";
 
 export async function POST(request: Request) {
@@ -17,8 +16,6 @@ export async function POST(request: Request) {
     const notes = asString(formData.get("notes"));
     const consent = asString(formData.get("consent"));
 
-    const proofOfWork = formData.get("proofOfWork");
-
     const errors: Record<string, string> = {};
     if (!isNonEmpty(formData.get("fullName"))) errors.fullName = "Full name is required.";
     if (!isValidEmail(email)) errors.email = "A valid email is required.";
@@ -27,26 +24,11 @@ export async function POST(request: Request) {
     if (!isNonEmpty(formData.get("portfolioUrl")))
       errors.portfolioUrl = "A portfolio or website link is required.";
     if (roles.length === 0) errors.roles = "Select at least one role.";
-    if (!(proofOfWork instanceof File) || proofOfWork.size === 0)
-      errors.proofOfWork = "Proof of work is required.";
     if (consent !== "on" && consent !== "true")
       errors.consent = "Please confirm you consent to Jessica storing your info.";
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json({ ok: false, errors }, { status: 400 });
-    }
-
-    const files: StoredFile[] = [];
-    try {
-      files.push(await storeFile(proofOfWork as File, ALLOWED_BRIEF_TYPES));
-    } catch (err) {
-      return NextResponse.json(
-        {
-          ok: false,
-          errors: { proofOfWork: err instanceof Error ? err.message : "Upload failed." },
-        },
-        { status: 400 }
-      );
     }
 
     await storeSubmission({
@@ -60,7 +42,7 @@ export async function POST(request: Request) {
         roles,
         notes,
       },
-      files,
+      files: [],
     });
 
     await sendNotification(

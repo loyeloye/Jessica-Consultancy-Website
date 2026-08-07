@@ -107,7 +107,7 @@ export function CreativeForm() {
 
       <div>
         <FieldLabel htmlFor="cr-portfolioUrl" required>
-          Portfolio or website link
+          Portfolio or website link (your proof of work)
         </FieldLabel>
         <input
           id="cr-portfolioUrl"
@@ -146,25 +146,6 @@ export function CreativeForm() {
       </div>
 
       <div>
-        <FieldLabel htmlFor="cr-proofOfWork" required>
-          Proof of work
-        </FieldLabel>
-        <input
-          id="cr-proofOfWork"
-          name="proofOfWork"
-          type="file"
-          accept="image/jpeg,image/png,image/webp,application/pdf"
-          required
-          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:text-xs file:font-medium file:text-ink`}
-        />
-        <p className="mt-1.5 text-xs text-paper/40">
-          A showreel frame, sample edit, portfolio PDF, or similar. JPG, PNG, WEBP, or PDF —
-          up to 8MB. Share more via your portfolio link above.
-        </p>
-        <FieldError message={errors.proofOfWork} />
-      </div>
-
-      <div>
         <FieldLabel htmlFor="cr-notes">Anything else Jessica should know? (optional)</FieldLabel>
         <textarea id="cr-notes" name="notes" rows={4} className={inputClass} />
       </div>
@@ -178,8 +159,8 @@ export function CreativeForm() {
           className="focus-ring mt-1 h-4 w-4 shrink-0 rounded border-line bg-ink-soft accent-[var(--color-accent)]"
         />
         <label htmlFor="cr-consent" className="text-sm leading-relaxed text-paper/70">
-          I consent to Jessica storing my details and work samples for the purpose of
-          production casting and booking consideration.
+          I consent to Jessica storing my details for the purpose of production casting
+          and booking consideration.
           <span className="ml-1 text-accent">*</span>
         </label>
       </div>

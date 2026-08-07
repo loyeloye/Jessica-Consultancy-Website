@@ -53,8 +53,8 @@ Precedence once configured:
   photographers, editors, videographers, producers, directors, and content
   creators. Same tabbed page as Talent Registration, switched client-side by
   `components/forms/RegistrationTabs.tsx`. The key difference from Talent is
-  a required **proof of work** upload (image or PDF) and a multi-select
-  **role(s)** field, in place of headshot + measurements.
+  a required portfolio/website link (doubling as proof of work) and a
+  multi-select **role(s)** field, in place of headshot + measurements.
 - **Contact** (`/contact`, `app/api/contact/route.ts`) — general inquiry.
 
 All four validate on the client and again on the server, show a loading
@@ -62,10 +62,9 @@ state while submitting, and show a clear success/error state. Submissions go
 to the `submissions` table and appear under **Inquiries** in the admin,
 filterable by kind.
 
-Uploaded headshots, proof-of-work files, and briefs go to a **private**
-storage bucket — they contain personal data, so they're never publicly
-readable. The admin views them through signed URLs that expire after an
-hour.
+Uploaded headshots and briefs go to a **private** storage bucket — they
+contain personal data, so they're never publicly readable. The admin views
+them through signed URLs that expire after an hour.
 
 ### Email notifications
 
