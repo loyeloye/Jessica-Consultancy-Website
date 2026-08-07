@@ -16,6 +16,11 @@ type Props = {
  * hover. When the tile is wrapped in a link, put `group` on that link too so
  * the reveal also fires on keyboard focus — the tile itself is never made
  * focusable, since a focusable element with no action is an a11y trap.
+ *
+ * Touch devices (iPad, iPhone) never fire `:hover` at all, so the effect
+ * would otherwise leave every image stuck in grayscale with no way to see
+ * it in colour. `[@media(hover:none)]:grayscale-0` renders those devices
+ * straight into the "revealed" end state instead.
  */
 export function HoverChromaTile({
   src,
@@ -39,7 +44,7 @@ export function HoverChromaTile({
           sizes={sizes}
           priority={priority}
           loading={priority ? undefined : "lazy"}
-          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0"
+          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0 [@media(hover:none)]:grayscale-0"
         />
       ) : (
         // A campaign saved without a hero image yet — keep the layout intact

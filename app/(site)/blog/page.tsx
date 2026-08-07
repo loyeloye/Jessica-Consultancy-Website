@@ -62,7 +62,7 @@ export default async function BlogIndexPage() {
                           alt={post.coverAlt || ""}
                           fill
                           sizes="(max-width: 640px) 100vw, 33vw"
-                          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:grayscale-0 group-focus-visible:grayscale-0"
+                          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:grayscale-0 group-focus-visible:grayscale-0 [@media(hover:none)]:grayscale-0"
                           unoptimized
                         />
                       </div>

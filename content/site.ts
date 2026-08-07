@@ -20,7 +20,7 @@ export const stats = [
 ];
 
 export const heroCredibilityLine =
-  "Trusted across banking, fashion, and lifestyle brands — with an active network of 30+ UAE and international talent, and a growing footprint in Dubai's fashion and retail industry.";
+  "Trusted across banking, fashion, and lifestyle brands — with an active network of 1,000+ UAE and international talent, and a growing footprint in Dubai's fashion and retail industry.";
 
 export const aboutPortrait = {
   src: "/images/about/portrait.webp",
@@ -75,7 +75,7 @@ export const services = [
           "Roster and availability management",
           "Talent logistics and scheduling",
           "On-set talent management and welfare",
-          "Access to 30+ UAE and international talent",
+          "Access to 1,000+ UAE and international talent",
         ],
       },
     ],
@@ -128,7 +128,7 @@ export const aboutHighlights = [
     title: "Talent Management",
     items: [
       "75+ talents sourced and booked — models, actors, presenters, and lifestyle talent",
-      "Active network of 30+ UAE and international talent",
+      "Active network of 1,000+ UAE and international talent",
       "Managed talent logistics and scheduling",
       "Coordinated contracts and production requirements",
     ],

@@ -21,9 +21,6 @@ export async function POST(request: Request) {
     const consent = asString(formData.get("consent"));
 
     const headshot = formData.get("headshot");
-    const additionalPhotos = formData
-      .getAll("additionalPhotos")
-      .filter((f): f is File => f instanceof File && f.size > 0);
 
     const errors: Record<string, string> = {};
     if (!isNonEmpty(formData.get("fullName"))) errors.fullName = "Full name is required.";
@@ -34,6 +31,11 @@ export async function POST(request: Request) {
       errors.portfolioUrl = "An Instagram or portfolio link is required.";
     if (!(headshot instanceof File) || headshot.size === 0)
       errors.headshot = "A headshot photo is required.";
+    if (!isNonEmpty(formData.get("height"))) errors.height = "Height is required.";
+    if (!isNonEmpty(formData.get("bust"))) errors.bust = "Bust / chest is required.";
+    if (!isNonEmpty(formData.get("waist"))) errors.waist = "Waist is required.";
+    if (!isNonEmpty(formData.get("hips"))) errors.hips = "Hips is required.";
+    if (!isNonEmpty(formData.get("shoeSize"))) errors.shoeSize = "Shoe size is required.";
     if (consent !== "on" && consent !== "true")
       errors.consent = "Please confirm you consent to Jessica storing your info.";
 
@@ -52,15 +54,6 @@ export async function POST(request: Request) {
         },
         { status: 400 }
       );
-    }
-
-    for (const file of additionalPhotos.slice(0, 4)) {
-      try {
-        files.push(await storeFile(file));
-      } catch {
-        // Skip an additional photo that fails validation; the required
-        // headshot already succeeded, so don't fail the whole registration.
-      }
     }
 
     await storeSubmission({
@@ -85,8 +78,7 @@ export async function POST(request: Request) {
         `Phone: ${phone}`,
         `City / base: ${city}`,
         `Portfolio / Instagram: ${portfolioUrl}`,
-        `Photos submitted: ${files.length}`,
-        `Height: ${height || "—"}, Bust: ${bust || "—"}, Waist: ${waist || "—"}, Hips: ${hips || "—"}, Shoe: ${shoeSize || "—"}`,
+        `Height: ${height}, Bust: ${bust}, Waist: ${waist}, Hips: ${hips}, Shoe: ${shoeSize}`,
         "",
         "Notes:",
         notes || "—",

@@ -8,7 +8,6 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function TalentForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [detailsOpen, setDetailsOpen] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -130,56 +129,52 @@ export function TalentForm() {
         <FieldError message={errors.headshot} />
       </div>
 
-      <div>
-        <FieldLabel htmlFor="additionalPhotos">Additional photos (optional)</FieldLabel>
-        <input
-          id="additionalPhotos"
-          name="additionalPhotos"
-          type="file"
-          accept="image/jpeg,image/png,image/webp"
-          multiple
-          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-paper/10 file:px-4 file:py-2 file:text-xs file:font-medium file:text-paper`}
-        />
-        <p className="mt-1.5 text-xs text-paper/40">Up to 4 additional photos.</p>
-      </div>
-
-      <div className="rounded-sm border border-line">
-        <button
-          type="button"
-          onClick={() => setDetailsOpen((v) => !v)}
-          aria-expanded={detailsOpen}
-          aria-controls="optional-details"
-          className="focus-ring flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium text-paper/85"
-        >
-          Measurements & stats (optional)
-          <span aria-hidden className={`transition-transform ${detailsOpen ? "rotate-180" : ""}`}>
-            ▾
-          </span>
-        </button>
-        {detailsOpen && (
-          <div id="optional-details" className="grid grid-cols-2 gap-4 border-t border-line p-5 sm:grid-cols-3">
-            <div>
-              <FieldLabel htmlFor="height">Height</FieldLabel>
-              <input id="height" name="height" type="text" placeholder="e.g. 5'9&quot;" className={inputClass} />
-            </div>
-            <div>
-              <FieldLabel htmlFor="bust">Bust / chest</FieldLabel>
-              <input id="bust" name="bust" type="text" className={inputClass} />
-            </div>
-            <div>
-              <FieldLabel htmlFor="waist">Waist</FieldLabel>
-              <input id="waist" name="waist" type="text" className={inputClass} />
-            </div>
-            <div>
-              <FieldLabel htmlFor="hips">Hips</FieldLabel>
-              <input id="hips" name="hips" type="text" className={inputClass} />
-            </div>
-            <div>
-              <FieldLabel htmlFor="shoeSize">Shoe size</FieldLabel>
-              <input id="shoeSize" name="shoeSize" type="text" className={inputClass} />
-            </div>
+      <div className="rounded-sm border border-line p-5">
+        <p className="mb-4 text-sm font-medium text-paper/85">Measurements & stats</p>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div>
+            <FieldLabel htmlFor="height" required>
+              Height
+            </FieldLabel>
+            <input
+              id="height"
+              name="height"
+              type="text"
+              placeholder="e.g. 5'9&quot;"
+              required
+              className={inputClass}
+            />
+            <FieldError message={errors.height} />
           </div>
-        )}
+          <div>
+            <FieldLabel htmlFor="bust" required>
+              Bust / chest
+            </FieldLabel>
+            <input id="bust" name="bust" type="text" required className={inputClass} />
+            <FieldError message={errors.bust} />
+          </div>
+          <div>
+            <FieldLabel htmlFor="waist" required>
+              Waist
+            </FieldLabel>
+            <input id="waist" name="waist" type="text" required className={inputClass} />
+            <FieldError message={errors.waist} />
+          </div>
+          <div>
+            <FieldLabel htmlFor="hips" required>
+              Hips
+            </FieldLabel>
+            <input id="hips" name="hips" type="text" required className={inputClass} />
+            <FieldError message={errors.hips} />
+          </div>
+          <div>
+            <FieldLabel htmlFor="shoeSize" required>
+              Shoe size
+            </FieldLabel>
+            <input id="shoeSize" name="shoeSize" type="text" required className={inputClass} />
+            <FieldError message={errors.shoeSize} />
+          </div>
+        </div>
       </div>
 
       <div>
