@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -59,10 +59,15 @@ export function Hero({
         <p className="mb-6 text-xs uppercase tracking-[0.25em] text-accent">{eyebrow}</p>
         <h1 className="animate-settle font-display max-w-4xl text-4xl leading-[1.08] sm:text-6xl">
           {words.map((word, i) => (
-            <span key={i} style={{ animationDelay: `${i * 60}ms` }}>
-              {word}
+            // The space is a sibling text node, not part of the span's own
+            // content — a trailing space inside an inline-block collapses
+            // in most browsers, which is what was smushing words together.
+            <Fragment key={i}>
+              <span className="inline-block" style={{ animationDelay: `${i * 60}ms` }}>
+                {word}
+              </span>
               {i < words.length - 1 ? " " : ""}
-            </span>
+            </Fragment>
           ))}
         </h1>
         <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
