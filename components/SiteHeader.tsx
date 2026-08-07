@@ -3,16 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { siteConfig } from "@/content/site";
 
-const navLinks = [
+const baseLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
-  { href: "/contact", label: "Contact" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ name, showBlog }: { name: string; showBlog: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [lastPathname, setLastPathname] = useState(pathname);
@@ -22,11 +20,17 @@ export function SiteHeader() {
     setOpen(false);
   }
 
+  const navLinks = [
+    ...baseLinks,
+    ...(showBlog ? [{ href: "/blog", label: "Journal" }] : []),
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="focus-ring font-display text-xl tracking-tight text-paper">
-          {siteConfig.name}
+          {name}
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -54,7 +58,7 @@ export function SiteHeader() {
             href="/book"
             className="focus-ring rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-accent-soft"
           >
-            Book Jessica
+            Book {name}
           </Link>
         </div>
 
@@ -70,7 +74,9 @@ export function SiteHeader() {
             <span
               className={`absolute left-0 top-0 h-px w-5 bg-current transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
             />
-            <span className={`absolute left-0 top-2 h-px w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`absolute left-0 top-2 h-px w-5 bg-current transition-opacity ${open ? "opacity-0" : ""}`}
+            />
             <span
               className={`absolute left-0 top-4 h-px w-5 bg-current transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
             />
@@ -96,7 +102,7 @@ export function SiteHeader() {
                 href="/book"
                 className="focus-ring block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-ink"
               >
-                Book Jessica
+                Book {name}
               </Link>
             </li>
           </ul>

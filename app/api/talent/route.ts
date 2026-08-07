@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { appendRecord } from "@/lib/storage";
-import { saveUpload } from "@/lib/uploads";
 import { sendNotification } from "@/lib/mailer";
+import { storeFile, storeSubmission, type StoredFile } from "@/lib/submissions";
 import { asString, isNonEmpty, isValidEmail } from "@/lib/validate";
 
 export async function POST(request: Request) {
@@ -22,9 +21,9 @@ export async function POST(request: Request) {
     const consent = asString(formData.get("consent"));
 
     const headshot = formData.get("headshot");
-    const additionalPhotos = formData.getAll("additionalPhotos").filter(
-      (f): f is File => f instanceof File && f.size > 0
-    );
+    const additionalPhotos = formData
+      .getAll("additionalPhotos")
+      .filter((f): f is File => f instanceof File && f.size > 0);
 
     const errors: Record<string, string> = {};
     if (!isNonEmpty(formData.get("fullName"))) errors.fullName = "Full name is required.";
@@ -42,40 +41,41 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, errors }, { status: 400 });
     }
 
-    let headshotFile;
+    const files: StoredFile[] = [];
     try {
-      headshotFile = await saveUpload(headshot as File);
+      files.push(await storeFile(headshot as File));
     } catch (err) {
       return NextResponse.json(
-        { ok: false, errors: { headshot: err instanceof Error ? err.message : "Upload failed." } },
+        {
+          ok: false,
+          errors: { headshot: err instanceof Error ? err.message : "Upload failed." },
+        },
         { status: 400 }
       );
     }
 
-    const additionalFiles = [];
     for (const file of additionalPhotos.slice(0, 4)) {
       try {
-        additionalFiles.push(await saveUpload(file));
+        files.push(await storeFile(file));
       } catch {
-        // Skip any additional photo that fails validation; headshot already succeeded.
+        // Skip an additional photo that fails validation; the required
+        // headshot already succeeded, so don't fail the whole registration.
       }
     }
 
-    const record = {
-      id: crypto.randomUUID(),
-      submittedAt: new Date().toISOString(),
-      fullName,
+    await storeSubmission({
+      kind: "talent",
+      name: fullName,
       email,
-      phone,
-      city,
-      portfolioUrl,
-      stats: { height, bust, waist, hips, shoeSize },
-      notes,
-      headshotFile,
-      additionalFiles,
-    };
-
-    await appendRecord("talent.json", record);
+      data: {
+        phone,
+        city,
+        portfolioUrl,
+        notes,
+        stats: { height, bust, waist, hips, shoeSize },
+      },
+      files,
+    });
 
     await sendNotification(
       `New talent registration — ${fullName}`,
@@ -85,8 +85,7 @@ export async function POST(request: Request) {
         `Phone: ${phone}`,
         `City / base: ${city}`,
         `Portfolio / Instagram: ${portfolioUrl}`,
-        `Headshot: ${headshotFile.originalName}`,
-        `Additional photos: ${additionalFiles.length}`,
+        `Photos submitted: ${files.length}`,
         `Height: ${height || "—"}, Bust: ${bust || "—"}, Waist: ${waist || "—"}, Hips: ${hips || "—"}, Shoe: ${shoeSize || "—"}`,
         "",
         "Notes:",

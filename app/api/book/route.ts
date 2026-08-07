@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { appendRecord } from "@/lib/storage";
-import { saveUpload, ALLOWED_BRIEF_TYPES } from "@/lib/uploads";
 import { sendNotification } from "@/lib/mailer";
+import { storeFile, storeSubmission, type StoredFile } from "@/lib/submissions";
+import { ALLOWED_BRIEF_TYPES } from "@/lib/uploads";
 import { asString, isNonEmpty, isValidEmail } from "@/lib/validate";
 
 export async function POST(request: Request) {
@@ -21,17 +21,19 @@ export async function POST(request: Request) {
     const errors: Record<string, string> = {};
     if (!isNonEmpty(formData.get("name"))) errors.name = "Name is required.";
     if (!isValidEmail(email)) errors.email = "A valid email is required.";
-    if (!isNonEmpty(formData.get("projectType"))) errors.projectType = "Please choose a project type.";
-    if (!isNonEmpty(formData.get("message"))) errors.message = "Please add a short brief or message.";
+    if (!isNonEmpty(formData.get("projectType")))
+      errors.projectType = "Please choose a project type.";
+    if (!isNonEmpty(formData.get("message")))
+      errors.message = "Please add a short brief or message.";
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json({ ok: false, errors }, { status: 400 });
     }
 
-    let briefFile: { fileName: string; originalName: string; size: number } | null = null;
+    const files: StoredFile[] = [];
     if (brief instanceof File && brief.size > 0) {
       try {
-        briefFile = await saveUpload(brief, ALLOWED_BRIEF_TYPES);
+        files.push(await storeFile(brief, ALLOWED_BRIEF_TYPES));
       } catch (err) {
         return NextResponse.json(
           { ok: false, errors: { brief: err instanceof Error ? err.message : "Upload failed." } },
@@ -40,21 +42,13 @@ export async function POST(request: Request) {
       }
     }
 
-    const record = {
-      id: crypto.randomUUID(),
-      submittedAt: new Date().toISOString(),
+    await storeSubmission({
+      kind: "booking",
       name,
       email,
-      phone,
-      company,
-      projectType,
-      projectDate,
-      budgetRange,
-      message,
-      briefFile,
-    };
-
-    await appendRecord("bookings.json", record);
+      data: { phone, company, projectType, projectDate, budgetRange, message },
+      files,
+    });
 
     await sendNotification(
       `New booking inquiry — ${projectType} (${name})`,
@@ -66,7 +60,7 @@ export async function POST(request: Request) {
         `Project type: ${projectType}`,
         `Project date(s): ${projectDate || "—"}`,
         `Budget range: ${budgetRange || "—"}`,
-        `Brief attached: ${briefFile ? briefFile.originalName : "no"}`,
+        `Brief attached: ${files.length ? files[0].name : "no"}`,
         "",
         "Message:",
         message,

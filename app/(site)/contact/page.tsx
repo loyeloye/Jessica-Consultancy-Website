@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { siteConfig } from "@/content/site";
+import { getSettings } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: `Contact — ${siteConfig.name}`,
-  description: siteConfig.metaDescription,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings();
+  return {
+    title: `Contact — ${settings.name}`,
+    description: settings.metaDescription,
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const siteConfig = await getSettings();
+
   return (
     <section className="border-b border-line bg-ink py-20 sm:py-28">
       <Container className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">

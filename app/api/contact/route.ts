@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { appendRecord } from "@/lib/storage";
 import { sendNotification } from "@/lib/mailer";
+import { storeSubmission } from "@/lib/submissions";
 import { asString, isNonEmpty, isValidEmail } from "@/lib/validate";
 
 export async function POST(request: Request) {
@@ -20,15 +20,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, errors }, { status: 400 });
     }
 
-    const record = {
-      id: crypto.randomUUID(),
-      submittedAt: new Date().toISOString(),
+    await storeSubmission({
+      kind: "contact",
       name,
       email,
-      message,
-    };
-
-    await appendRecord("contact.json", record);
+      data: { message },
+      files: [],
+    });
 
     await sendNotification(
       `New general inquiry — ${name}`,

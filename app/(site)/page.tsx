@@ -4,16 +4,23 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { MagneticButton } from "@/components/MagneticButton";
-import { stats, services, campaigns, heroCredibilityLine, siteConfig } from "@/content/site";
+import { getCampaigns, getSettings } from "@/lib/content";
+import { services } from "@/content/site";
 
-export default function Home() {
+export default async function Home() {
+  const [settings, campaigns] = await Promise.all([getSettings(), getCampaigns()]);
+
   return (
     <>
-      <Hero />
+      <Hero
+        eyebrow={`${settings.location} · ${settings.tagline}`}
+        headline={settings.heroHeadline}
+        subhead={settings.heroSubhead}
+      />
 
       <section className="border-b border-line bg-ink-soft">
         <Container className="grid grid-cols-1 gap-8 py-14 sm:grid-cols-3">
-          {stats.map((stat) => (
+          {settings.stats.map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
               <p className="font-display text-4xl text-accent">{stat.value}</p>
               <p className="mt-2 text-sm text-paper/70">{stat.label}</p>
@@ -87,7 +94,7 @@ export default function Home() {
       <section className="bg-ink py-20 sm:py-28">
         <Container className="max-w-3xl text-center">
           <p className="font-display text-2xl leading-relaxed text-paper sm:text-3xl">
-            &ldquo;{heroCredibilityLine}&rdquo;
+            &ldquo;{settings.credibilityLine}&rdquo;
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <MagneticButton href="/book">Book a Production</MagneticButton>
@@ -96,7 +103,7 @@ export default function Home() {
             </MagneticButton>
           </div>
           <p className="mt-6 text-xs uppercase tracking-wider text-paper/40">
-            {siteConfig.location} — available across the Middle East, Asia, and internationally
+            {settings.location} — available across the Middle East, Asia, and internationally
           </p>
         </Container>
       </section>

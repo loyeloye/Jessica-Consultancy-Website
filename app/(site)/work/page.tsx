@@ -3,14 +3,20 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { MagneticButton } from "@/components/MagneticButton";
-import { campaigns, highlights, sectors, siteConfig } from "@/content/site";
+import { getCampaigns, getHighlights, getSettings } from "@/lib/content";
+import { sectors } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: `Work — ${siteConfig.name}`,
-  description: siteConfig.metaDescription,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings();
+  return {
+    title: `Work — ${settings.name}`,
+    description: settings.metaDescription,
+  };
+}
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const [campaigns, highlights] = await Promise.all([getCampaigns(), getHighlights()]);
+
   return (
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-28">

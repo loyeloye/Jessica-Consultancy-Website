@@ -31,15 +31,24 @@ export function HoverChromaTile({
     <div
       className={`group relative ${aspect} w-full overflow-hidden rounded-sm bg-ink-soft ${className}`}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        priority={priority}
-        loading={priority ? undefined : "lazy"}
-        className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0"
-      />
+      {src ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
+          className="object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0"
+        />
+      ) : (
+        // A campaign saved without a hero image yet — keep the layout intact
+        // rather than crashing on an empty next/image src.
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-600 to-neutral-800"
+        />
+      )}
       {label && (
         <>
           {/* Scrim and caption sit over photography, so they stay light-on-dark
