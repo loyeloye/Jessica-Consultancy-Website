@@ -14,7 +14,7 @@ export default function ServicesPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">Services</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Services</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">
             Production, talent, and direction — one point of contact.
           </h1>
@@ -37,13 +37,13 @@ export default function ServicesPage() {
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,320px)_1fr]">
               <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent">
                   <ServiceIcon name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up"} className="h-5 w-5" />
                 </div>
                 <h2 className="font-display mt-5 text-2xl sm:text-3xl">{service.title}</h2>
                 <p className="mt-4 text-sm leading-relaxed text-paper/70">{service.short}</p>
                 {service.note && (
-                  <p className="mt-4 rounded-sm border border-gold/30 bg-gold/5 p-4 text-xs leading-relaxed text-paper/70">
+                  <p className="mt-4 rounded-sm border border-accent/30 bg-accent/5 p-4 text-xs leading-relaxed text-paper/70">
                     {service.note}
                   </p>
                 )}
@@ -65,7 +65,7 @@ export default function ServicesPage() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {service.breakdown.map((block) => (
                   <div key={block.phase} className="rounded-sm border border-line p-6">
-                    <h3 className="text-xs uppercase tracking-wider text-gold">{block.phase}</h3>
+                    <h3 className="text-xs uppercase tracking-wider text-accent">{block.phase}</h3>
                     <ul className="mt-4 space-y-3 text-sm leading-relaxed text-paper/75">
                       {block.items.map((item) => (
                         <li key={item} className="flex gap-2">

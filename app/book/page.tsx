@@ -13,7 +13,7 @@ export default function BookPage() {
   return (
     <section className="border-b border-line bg-ink py-20 sm:py-28">
       <Container className="max-w-2xl">
-        <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">Book Jessica</p>
+        <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Book Jessica</p>
         <h1 className="font-display text-4xl leading-tight sm:text-5xl">
           Tell Jessica about your project.
         </h1>

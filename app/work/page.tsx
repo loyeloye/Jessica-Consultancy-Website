@@ -24,7 +24,7 @@ export default function WorkPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">Work</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Work</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">
             Campaigns coordinated, cast, and directed.
           </h1>
@@ -51,7 +51,7 @@ export default function WorkPage() {
                 gradient={gradients[campaigns.indexOf(c) % gradients.length]}
               />
               <div>
-                <p className="text-xs uppercase tracking-wider text-gold">{c.category}</p>
+                <p className="text-xs uppercase tracking-wider text-accent">{c.category}</p>
                 <h2 className="font-display mt-2 text-2xl sm:text-3xl">{c.client}</h2>
                 <p className="mt-2 text-sm uppercase tracking-wider text-paper/50">
                   Role: {c.role}
@@ -79,8 +79,8 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-sm border border-gold/30 bg-gold/5 p-4">
-                  <h3 className="text-xs uppercase tracking-wider text-gold">Outcome</h3>
+                <div className="mt-6 rounded-sm border border-accent/30 bg-accent/5 p-4">
+                  <h3 className="text-xs uppercase tracking-wider text-accent">Outcome</h3>
                   <p className="mt-2 text-sm leading-relaxed text-paper/80">{c.outcome}</p>
                 </div>
               </div>

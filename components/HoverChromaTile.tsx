@@ -44,10 +44,12 @@ export function HoverChromaTile({
           className={`absolute inset-0 bg-gradient-to-br ${gradient} grain opacity-70 saturate-0 transition-all duration-500 ease-out group-hover:saturate-100 group-hover:opacity-100 group-focus-visible:saturate-100 group-hover:scale-[1.04]`}
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+      {/* Caption scrim is fixed dark-on-light regardless of site theme — it sits over
+          photography/placeholder plates, which stay dark independent of the palette. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-5">
-        <p className="font-display text-lg text-paper">{label}</p>
-        {sublabel && <p className="mt-1 text-xs uppercase tracking-wider text-paper/60">{sublabel}</p>}
+        <p className="font-display text-lg text-[#f7f1e6]">{label}</p>
+        {sublabel && <p className="mt-1 text-xs uppercase tracking-wider text-[#f7f1e6]/60">{sublabel}</p>}
       </div>
     </div>
   );

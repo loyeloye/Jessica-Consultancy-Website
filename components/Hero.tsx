@@ -37,7 +37,7 @@ export function Hero() {
         className="pointer-events-none absolute -inset-32 opacity-60 transition-transform duration-300 ease-out"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(200,160,90,0.22), transparent 70%)",
+            "radial-gradient(closest-side, rgba(47,143,138,0.20), transparent 70%)",
           transform: reduced
             ? undefined
             : `translate(${tilt.x * 60}px, ${tilt.y * 60}px)`,
@@ -48,7 +48,7 @@ export function Hero() {
         className="pointer-events-none absolute -inset-32 opacity-40 transition-transform duration-500 ease-out"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(247,244,238,0.08), transparent 65%)",
+            "radial-gradient(closest-side, rgba(58,42,28,0.10), transparent 65%)",
           transform: reduced
             ? undefined
             : `translate(${tilt.x * -40}px, ${tilt.y * -40}px)`,
@@ -56,7 +56,7 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-36">
-        <p className="mb-6 text-xs uppercase tracking-[0.25em] text-gold">
+        <p className="mb-6 text-xs uppercase tracking-[0.25em] text-accent">
           {siteConfig.location} · {siteConfig.tagline}
         </p>
         <h1 className="animate-settle font-display max-w-4xl text-4xl leading-[1.08] sm:text-6xl">

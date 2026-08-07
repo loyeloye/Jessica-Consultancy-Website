@@ -12,7 +12,7 @@ export function SectionHeading({
   return (
     <div className="max-w-2xl">
       {eyebrow && (
-        <p className={`mb-3 text-xs uppercase tracking-[0.2em] ${light ? "text-ink/50" : "text-gold"}`}>
+        <p className={`mb-3 text-xs uppercase tracking-[0.2em] ${light ? "text-ink/50" : "text-accent"}`}>
           {eyebrow}
         </p>
       )}

@@ -15,12 +15,12 @@ export function SiteFooter() {
             <p className="mb-3 uppercase tracking-wider text-paper/40">Contact</p>
             <ul className="space-y-2 text-paper/80">
               <li>
-                <a href={`mailto:${siteConfig.email}`} className="focus-ring hover:text-gold">
+                <a href={`mailto:${siteConfig.email}`} className="focus-ring hover:text-accent">
                   {siteConfig.email}
                 </a>
               </li>
               <li>
-                <a href={`tel:${siteConfig.phoneHref}`} className="focus-ring hover:text-gold">
+                <a href={`tel:${siteConfig.phoneHref}`} className="focus-ring hover:text-accent">
                   {siteConfig.phone}
                 </a>
               </li>
@@ -29,7 +29,7 @@ export function SiteFooter() {
                   href={siteConfig.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring hover:text-gold"
+                  className="focus-ring hover:text-accent"
                 >
                   LinkedIn
                 </a>
@@ -42,22 +42,22 @@ export function SiteFooter() {
             <p className="mb-3 uppercase tracking-wider text-paper/40">Explore</p>
             <ul className="space-y-2 text-paper/80">
               <li>
-                <Link href="/services" className="focus-ring hover:text-gold">
+                <Link href="/services" className="focus-ring hover:text-accent">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/work" className="focus-ring hover:text-gold">
+                <Link href="/work" className="focus-ring hover:text-accent">
                   Work
                 </Link>
               </li>
               <li>
-                <Link href="/book" className="focus-ring hover:text-gold">
+                <Link href="/book" className="focus-ring hover:text-accent">
                   Book Jessica
                 </Link>
               </li>
               <li>
-                <Link href="/talent" className="focus-ring hover:text-gold">
+                <Link href="/talent" className="focus-ring hover:text-accent">
                   Register as Talent
                 </Link>
               </li>

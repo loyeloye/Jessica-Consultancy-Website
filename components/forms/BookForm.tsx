@@ -42,7 +42,7 @@ export function BookForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-sm border border-gold/30 bg-gold/5 p-8 text-center">
+      <div className="rounded-sm border border-accent/30 bg-accent/5 p-8 text-center">
         <h2 className="font-display text-2xl text-paper">Thank you — inquiry received.</h2>
         <p className="mt-3 text-sm leading-relaxed text-paper/70">
           Jessica will follow up by email shortly to discuss your project. If it&apos;s
@@ -51,7 +51,7 @@ export function BookForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="focus-ring mt-6 text-sm text-gold underline underline-offset-4"
+          className="focus-ring mt-6 text-sm text-accent underline underline-offset-4"
         >
           Submit another inquiry
         </button>
@@ -62,7 +62,7 @@ export function BookForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6" aria-busy={status === "submitting"}>
       {errors.form && (
-        <div role="alert" className="rounded-sm border border-red-400/40 bg-red-400/10 p-4 text-sm text-red-300">
+        <div role="alert" className="rounded-sm border border-red-600/40 bg-red-600/10 p-4 text-sm text-red-700">
           {errors.form}
         </div>
       )}
@@ -164,7 +164,7 @@ export function BookForm() {
           name="brief"
           type="file"
           accept="image/jpeg,image/png,image/webp,application/pdf"
-          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-gold file:px-4 file:py-2 file:text-xs file:font-medium file:text-ink`}
+          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:text-xs file:font-medium file:text-ink`}
         />
         <p className="mt-1.5 text-xs text-paper/40">JPG, PNG, WEBP, or PDF — up to 8MB.</p>
         <FieldError message={errors.brief} />
@@ -173,7 +173,7 @@ export function BookForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="focus-ring w-full rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="focus-ring w-full rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-accent-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending inquiry..." : "Send Inquiry"}
       </button>

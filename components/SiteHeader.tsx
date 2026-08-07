@@ -34,8 +34,8 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`focus-ring text-sm tracking-wide transition-colors hover:text-gold ${
-                pathname === link.href ? "text-gold" : "text-paper/80"
+              className={`focus-ring text-sm tracking-wide transition-colors hover:text-accent ${
+                pathname === link.href ? "text-accent" : "text-paper/80"
               }`}
             >
               {link.label}
@@ -46,13 +46,13 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <Link
             href="/talent"
-            className="focus-ring text-sm tracking-wide text-paper/80 transition-colors hover:text-gold"
+            className="focus-ring text-sm tracking-wide text-paper/80 transition-colors hover:text-accent"
           >
             Register as Talent
           </Link>
           <Link
             href="/book"
-            className="focus-ring rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft"
+            className="focus-ring rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-accent-soft"
           >
             Book Jessica
           </Link>
@@ -85,7 +85,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="focus-ring block rounded px-2 py-3 text-base text-paper/90 hover:text-gold"
+                  className="focus-ring block rounded px-2 py-3 text-base text-paper/90 hover:text-accent"
                 >
                   {link.label}
                 </Link>
@@ -94,7 +94,7 @@ export function SiteHeader() {
             <li className="mt-2">
               <Link
                 href="/book"
-                className="focus-ring block rounded-full bg-gold px-5 py-3 text-center text-sm font-medium text-ink"
+                className="focus-ring block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-ink"
               >
                 Book Jessica
               </Link>

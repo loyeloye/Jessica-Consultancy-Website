@@ -12,7 +12,7 @@ export default function TalentPage() {
   return (
     <section className="border-b border-line bg-ink py-20 sm:py-28">
       <Container className="max-w-2xl">
-        <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">Talent Registration</p>
+        <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Talent Registration</p>
         <h1 className="font-display text-4xl leading-tight sm:text-5xl">
           Join Jessica&apos;s talent roster.
         </h1>

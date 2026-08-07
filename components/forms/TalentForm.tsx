@@ -38,7 +38,7 @@ export function TalentForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-sm border border-gold/30 bg-gold/5 p-8 text-center">
+      <div className="rounded-sm border border-accent/30 bg-accent/5 p-8 text-center">
         <h2 className="font-display text-2xl text-paper">You&apos;re on the roster.</h2>
         <p className="mt-3 text-sm leading-relaxed text-paper/70">
           Thanks for registering. Jessica reviews new talent submissions regularly and
@@ -47,7 +47,7 @@ export function TalentForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="focus-ring mt-6 text-sm text-gold underline underline-offset-4"
+          className="focus-ring mt-6 text-sm text-accent underline underline-offset-4"
         >
           Register another talent
         </button>
@@ -58,7 +58,7 @@ export function TalentForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6" aria-busy={status === "submitting"}>
       {errors.form && (
-        <div role="alert" className="rounded-sm border border-red-400/40 bg-red-400/10 p-4 text-sm text-red-300">
+        <div role="alert" className="rounded-sm border border-red-600/40 bg-red-600/10 p-4 text-sm text-red-700">
           {errors.form}
         </div>
       )}
@@ -122,7 +122,7 @@ export function TalentForm() {
           type="file"
           accept="image/jpeg,image/png,image/webp"
           required
-          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-gold file:px-4 file:py-2 file:text-xs file:font-medium file:text-ink`}
+          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:text-xs file:font-medium file:text-ink`}
         />
         <p className="mt-1.5 text-xs text-paper/40">
           Clear, recent, front-facing. JPG, PNG, or WEBP — up to 8MB.
@@ -193,12 +193,12 @@ export function TalentForm() {
           name="consent"
           type="checkbox"
           required
-          className="focus-ring mt-1 h-4 w-4 shrink-0 rounded border-line bg-ink-soft accent-[var(--color-gold)]"
+          className="focus-ring mt-1 h-4 w-4 shrink-0 rounded border-line bg-ink-soft accent-[var(--color-accent)]"
         />
         <label htmlFor="consent" className="text-sm leading-relaxed text-paper/70">
           I consent to Jessica storing my details and photos for the purpose of talent
           casting and booking consideration.
-          <span className="ml-1 text-gold">*</span>
+          <span className="ml-1 text-accent">*</span>
         </label>
       </div>
       <FieldError message={errors.consent} />
@@ -206,7 +206,7 @@ export function TalentForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="focus-ring w-full rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="focus-ring w-full rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-accent-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Submitting..." : "Register as Talent"}
       </button>

@@ -13,7 +13,7 @@ export default function ContactPage() {
     <section className="border-b border-line bg-ink py-20 sm:py-28">
       <Container className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">Contact</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Contact</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">Get in touch.</h1>
           <p className="mt-6 text-base leading-relaxed text-paper/70">
             For bookings and talent registration, use the dedicated forms — for
@@ -24,7 +24,7 @@ export default function ContactPage() {
             <div>
               <dt className="uppercase tracking-wider text-paper/40">Email</dt>
               <dd className="mt-1">
-                <a href={`mailto:${siteConfig.email}`} className="focus-ring text-lg text-paper hover:text-gold">
+                <a href={`mailto:${siteConfig.email}`} className="focus-ring text-lg text-paper hover:text-accent">
                   {siteConfig.email}
                 </a>
               </dd>
@@ -32,7 +32,7 @@ export default function ContactPage() {
             <div>
               <dt className="uppercase tracking-wider text-paper/40">Phone / WhatsApp</dt>
               <dd className="mt-1">
-                <a href={`tel:${siteConfig.phoneHref}`} className="focus-ring text-lg text-paper hover:text-gold">
+                <a href={`tel:${siteConfig.phoneHref}`} className="focus-ring text-lg text-paper hover:text-accent">
                   {siteConfig.phone}
                 </a>
               </dd>
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   href={siteConfig.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring text-lg text-paper hover:text-gold"
+                  className="focus-ring text-lg text-paper hover:text-accent"
                 >
                   jessica-chukwu
                 </a>

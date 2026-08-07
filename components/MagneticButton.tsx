@@ -30,8 +30,8 @@ export function MagneticButton({ href, children, variant = "solid", className = 
 
   const base =
     "focus-ring inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200 will-change-transform";
-  const solid = "bg-gold text-ink hover:bg-gold-soft";
-  const outline = "border border-paper/30 text-paper hover:border-gold hover:text-gold";
+  const solid = "bg-accent text-ink hover:bg-accent-soft";
+  const outline = "border border-paper/30 text-paper hover:border-accent hover:text-accent";
 
   return (
     <Link

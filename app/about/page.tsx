@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">About</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">About</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">
             A calm, organized hand behind ambitious shoots.
           </h1>
@@ -39,11 +39,11 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {aboutHighlights.map((group) => (
               <div key={group.title} className="rounded-sm border border-line bg-ink p-6">
-                <h3 className="font-display text-lg text-gold">{group.title}</h3>
+                <h3 className="font-display text-lg text-accent">{group.title}</h3>
                 <ul className="mt-4 space-y-3 text-sm leading-relaxed text-paper/75">
                   {group.items.map((item) => (
                     <li key={item} className="flex gap-2">
-                      <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
+                      <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -56,7 +56,7 @@ export default function AboutPage() {
 
       <section className="border-b border-line bg-ink py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.25em] text-gold">Beyond Production</p>
+          <p className="mb-3 text-xs uppercase tracking-[0.25em] text-accent">Beyond Production</p>
           <h2 className="font-display text-2xl sm:text-3xl">Strategic & Growth Consulting</h2>
           <p className="mt-5 text-base leading-relaxed text-paper/75">{aboutConsultingNote}</p>
           <p className="mt-4 text-base leading-relaxed text-paper/75">

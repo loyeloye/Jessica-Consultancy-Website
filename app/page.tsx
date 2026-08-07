@@ -21,7 +21,7 @@ export default function Home() {
         <Container className="grid grid-cols-1 gap-8 py-14 sm:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
-              <p className="font-display text-4xl text-gold">{stat.value}</p>
+              <p className="font-display text-4xl text-accent">{stat.value}</p>
               <p className="mt-2 text-sm text-paper/70">{stat.label}</p>
             </div>
           ))}
@@ -65,13 +65,13 @@ export default function Home() {
               <Link
                 key={service.slug}
                 href={`/services#${service.slug}`}
-                className="focus-ring group flex flex-col justify-between rounded-sm border border-line bg-ink p-6 transition-colors hover:border-gold/50"
+                className="focus-ring group flex flex-col justify-between rounded-sm border border-line bg-ink p-6 transition-colors hover:border-accent/50"
               >
                 <div>
                   <h3 className="font-display text-lg text-paper">{service.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-paper/60">{service.short}</p>
                 </div>
-                <span className="mt-6 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-gold">
+                <span className="mt-6 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-accent">
                   Learn more
                   <span aria-hidden className="transition-transform group-hover:translate-x-1">
                     →

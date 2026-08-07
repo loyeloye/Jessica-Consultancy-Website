@@ -37,7 +37,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-sm border border-gold/30 bg-gold/5 p-6 text-center">
+      <div className="rounded-sm border border-accent/30 bg-accent/5 p-6 text-center">
         <p className="font-display text-xl text-paper">Message sent.</p>
         <p className="mt-2 text-sm text-paper/70">Jessica will get back to you shortly.</p>
       </div>
@@ -47,7 +47,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5" aria-busy={status === "submitting"}>
       {errors.form && (
-        <div role="alert" className="rounded-sm border border-red-400/40 bg-red-400/10 p-4 text-sm text-red-300">
+        <div role="alert" className="rounded-sm border border-red-600/40 bg-red-600/10 p-4 text-sm text-red-700">
           {errors.form}
         </div>
       )}
@@ -75,7 +75,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="focus-ring w-full rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="focus-ring w-full rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-accent-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
