@@ -41,7 +41,7 @@ export default async function WorkPage() {
               id={c.slug}
               className="scroll-mt-24 border-b border-line pb-20 last:border-b-0 last:pb-0"
             >
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">
+              <div className="grid grid-cols-1 gap-8 min-[700px]:grid-cols-[1fr_1.2fr]">
                 <HoverChromaTile
                   src={c.image.src}
                   alt={c.image.alt}
