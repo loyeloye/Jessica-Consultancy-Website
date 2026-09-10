@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="grain border-b border-line bg-ink py-20 sm:py-28">
+      <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
           <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Services</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">

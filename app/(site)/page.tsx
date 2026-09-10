@@ -29,7 +29,7 @@ export default async function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink py-20 sm:py-28">
+      <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             eyebrow="Selected Work"
@@ -62,7 +62,7 @@ export default async function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink-soft py-20 sm:py-28">
+      <section className="border-b border-line bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             eyebrow="How Summer Et Al Can Help"
@@ -91,7 +91,7 @@ export default async function Home() {
         </Container>
       </section>
 
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl text-center">
           <p className="font-display text-2xl leading-relaxed text-paper sm:text-3xl">
             &ldquo;{settings.credibilityLine}&rdquo;

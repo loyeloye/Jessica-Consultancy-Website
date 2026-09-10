@@ -19,7 +19,7 @@ export default async function WorkPage() {
 
   return (
     <>
-      <section className="grain border-b border-line bg-ink py-20 sm:py-28">
+      <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
           <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Work</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">
@@ -33,7 +33,7 @@ export default async function WorkPage() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink-soft py-20 sm:py-28">
+      <section className="border-b border-line bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container className="space-y-20">
           {campaigns.map((c, i) => (
             <article
@@ -142,7 +142,7 @@ export default async function WorkPage() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink py-20 sm:py-28">
+      <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading
             eyebrow="Highlights"

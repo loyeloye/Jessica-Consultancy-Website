@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <section className="border-b border-line bg-ink py-20 sm:py-28">
+    <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
       <Container className="max-w-2xl">
         <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Book Summer Et Al</p>
         <h1 className="font-display text-4xl leading-tight sm:text-5xl">
