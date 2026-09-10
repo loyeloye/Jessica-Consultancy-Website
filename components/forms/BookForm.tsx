@@ -45,7 +45,7 @@ export function BookForm() {
       <div className="rounded-sm border border-accent/30 bg-accent/5 p-8 text-center">
         <h2 className="font-display text-2xl text-paper">Thank you — inquiry received.</h2>
         <p className="mt-3 text-sm leading-relaxed text-paper/70">
-          Jessica will follow up by email shortly to discuss your project. If it&apos;s
+          We&apos;ll follow up by email shortly to discuss your project. If it&apos;s
           time-sensitive, feel free to call or WhatsApp directly.
         </p>
         <button
@@ -151,7 +151,7 @@ export function BookForm() {
           name="message"
           required
           rows={5}
-          placeholder="Tell Jessica about the shoot, campaign, or consulting need..."
+          placeholder="Tell us about the shoot, campaign, or consulting need..."
           className={inputClass}
         />
         <FieldError message={errors.message} />

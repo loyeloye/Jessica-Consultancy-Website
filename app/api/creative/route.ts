@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       errors.portfolioUrl = "A portfolio or website link is required.";
     if (roles.length === 0) errors.roles = "Select at least one role.";
     if (consent !== "on" && consent !== "true")
-      errors.consent = "Please confirm you consent to Jessica storing your info.";
+      errors.consent = "Please confirm you consent to Summer Et Al storing your info.";
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json({ ok: false, errors }, { status: 400 });

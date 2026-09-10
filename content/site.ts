@@ -1,11 +1,10 @@
 // Single source of truth for site copy and facts.
-// Update the brand name here if Jessica settles on a formal business name.
 export const siteConfig = {
-  name: "Jessica",
-  fullName: "Jessica Chukwu",
+  name: "Summer Et Al",
+  fullName: "Summer Et Al",
   tagline: "Shoot Coordinator · Talent Booker · Creative Director",
   metaDescription:
-    "Jessica is a Dubai-based production coordinator, talent booker, and creative director for commercial, fashion, and editorial shoots — also available for strategic growth consulting.",
+    "Summer Et Al is a Dubai-based production coordination, talent booking, and creative direction studio for commercial, fashion, and editorial shoots — also available for strategic growth consulting.",
   email: "jaychukwu18@gmail.com",
   phone: "+971 58 897 9350",
   phoneHref: "+971588979350",

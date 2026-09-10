@@ -39,7 +39,7 @@ export function ContactForm() {
     return (
       <div className="rounded-sm border border-accent/30 bg-accent/5 p-6 text-center">
         <p className="font-display text-xl text-paper">Message sent.</p>
-        <p className="mt-2 text-sm text-paper/70">Jessica will get back to you shortly.</p>
+        <p className="mt-2 text-sm text-paper/70">We&apos;ll get back to you shortly.</p>
       </div>
     );
   }

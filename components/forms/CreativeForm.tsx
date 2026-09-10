@@ -49,7 +49,7 @@ export function CreativeForm() {
       <div className="rounded-sm border border-accent/30 bg-accent/5 p-8 text-center">
         <h2 className="font-display text-2xl text-paper">You&apos;re on the network.</h2>
         <p className="mt-3 text-sm leading-relaxed text-paper/70">
-          Thanks for registering. Jessica reviews new creative submissions regularly and
+          Thanks for registering. Summer Et Al reviews new creative submissions regularly and
           will reach out by email if there&apos;s a fit for an upcoming production.
         </p>
         <button
@@ -146,7 +146,7 @@ export function CreativeForm() {
       </div>
 
       <div>
-        <FieldLabel htmlFor="cr-notes">Anything else Jessica should know? (optional)</FieldLabel>
+        <FieldLabel htmlFor="cr-notes">Anything else we should know? (optional)</FieldLabel>
         <textarea id="cr-notes" name="notes" rows={4} className={inputClass} />
       </div>
 
@@ -159,7 +159,7 @@ export function CreativeForm() {
           className="focus-ring mt-1 h-4 w-4 shrink-0 rounded border-line bg-ink-soft accent-[var(--color-accent)]"
         />
         <label htmlFor="cr-consent" className="text-sm leading-relaxed text-paper/70">
-          I consent to Jessica storing my details for the purpose of production casting
+          I consent to Summer Et Al storing my details for the purpose of production casting
           and booking consideration.
           <span className="ml-1 text-accent">*</span>
         </label>

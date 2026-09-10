@@ -44,7 +44,7 @@ export type Post = {
 export const DEFAULT_HERO_HEADLINE =
   "Coordinating the shoots behind the campaigns you remember.";
 export const DEFAULT_HERO_SUBHEAD =
-  "Jessica plans and runs commercial, fashion, and editorial shoots from first call sheet to final delivery — and books the right talent to bring them to life.";
+  "Summer Et Al plans and runs commercial, fashion, and editorial shoots from first call sheet to final delivery — and books the right talent to bring them to life.";
 
 export const defaultSettings: SiteSettings = {
   name: staticSiteConfig.name,
