@@ -15,7 +15,7 @@ export default async function ContactPage() {
   const siteConfig = await getSettings();
 
   return (
-    <section className="border-b border-line bg-ink py-20 sm:py-28">
+    <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
       <Container className="grid grid-cols-1 gap-14 min-[700px]:grid-cols-[1fr_1.1fr]">
         <div>
           <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Contact</p>

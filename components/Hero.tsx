@@ -55,7 +55,7 @@ export function Hero({
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-36">
+      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-28 sm:px-8 sm:pb-24 sm:pt-32 lg:pb-28 lg:pt-36">
         <p className="mb-6 text-xs uppercase tracking-[0.25em] text-accent">{eyebrow}</p>
         <h1 className="animate-settle font-display max-w-4xl text-4xl leading-[1.08] sm:text-6xl">
           {words.map((word, i) => (

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="grain border-b border-line bg-ink py-20 sm:py-28">
+      <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="grid grid-cols-1 items-start gap-12 min-[700px]:grid-cols-[1.3fr_1fr]">
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">About</p>
@@ -49,7 +49,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink-soft py-20 sm:py-28">
+      <section className="border-b border-line bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container>
           <SectionHeading eyebrow="Career Highlights" title="Where Jessica adds the most value." />
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink py-20 sm:py-28">
+      <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
           <p className="mb-3 text-xs uppercase tracking-[0.25em] text-accent">Beyond Production</p>
           <h2 className="font-display text-2xl sm:text-3xl">Strategic & Growth Consulting</h2>

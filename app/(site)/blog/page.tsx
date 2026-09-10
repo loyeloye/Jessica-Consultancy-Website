@@ -27,7 +27,7 @@ export default async function BlogIndexPage() {
 
   return (
     <>
-      <section className="grain border-b border-line bg-ink py-20 sm:py-28">
+      <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
           <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Journal</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">
@@ -40,7 +40,7 @@ export default async function BlogIndexPage() {
         </Container>
       </section>
 
-      <section className="bg-ink-soft py-20 sm:py-28">
+      <section className="bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container>
           {posts.length === 0 ? (
             <p className="text-base text-paper/60">

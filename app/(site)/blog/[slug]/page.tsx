@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
   return (
     <>
       <article>
-        <section className="grain border-b border-line bg-ink py-20 sm:py-28">
+        <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
           <Container className="max-w-3xl">
             <Link
               href="/blog"
