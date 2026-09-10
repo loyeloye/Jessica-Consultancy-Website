@@ -35,7 +35,7 @@ export default function ServicesPage() {
           }`}
         >
           <Container>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,320px)_1fr]">
+            <div className="grid grid-cols-1 gap-10 min-[700px]:grid-cols-[minmax(0,320px)_1fr]">
               <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent">
                   <ServiceIcon name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up"} className="h-5 w-5" />

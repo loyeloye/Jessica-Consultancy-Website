@@ -16,7 +16,7 @@ export default async function ContactPage() {
 
   return (
     <section className="border-b border-line bg-ink py-20 sm:py-28">
-      <Container className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">
+      <Container className="grid grid-cols-1 gap-14 min-[700px]:grid-cols-[1fr_1.1fr]">
         <div>
           <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Contact</p>
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">Get in touch.</h1>
