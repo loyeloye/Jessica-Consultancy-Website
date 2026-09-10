@@ -14,7 +14,7 @@ export default function TalentPage() {
       <Container className="max-w-2xl">
         <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Registration</p>
         <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-          Join Jessica&apos;s network.
+          Join Summer Et Al&apos;s network.
         </h1>
 
         <div className="mt-12">

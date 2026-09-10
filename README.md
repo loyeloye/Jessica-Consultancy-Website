@@ -1,8 +1,9 @@
-# Jessica — Production, Talent & Consulting Website
+# Summer Et Al — Production, Talent & Consulting Website
 
-A marketing + booking site for Jessica, a Dubai-based production coordinator,
-talent booker, and creative director, also offering strategic growth
-consulting. Built with Next.js (App Router), TypeScript, and Tailwind CSS.
+A marketing + booking site for Summer Et Al, Jessica's Dubai-based production
+coordination, talent booking, and creative direction studio, also offering
+strategic growth consulting. Built with Next.js (App Router), TypeScript, and
+Tailwind CSS.
 
 ## Getting started
 
@@ -15,10 +16,10 @@ Open http://localhost:3000.
 
 ## Content
 
-All of Jessica's facts, copy, services, and campaign case studies live in a
+All of the site's facts, copy, services, and campaign case studies live in a
 single file: [`content/site.ts`](./content/site.ts). Update copy there rather
 than hunting through page components. The brand name is a single config value
-(`siteConfig.name`) in case a formal business name is chosen later.
+(`siteConfig.name`).
 
 ## Admin, blog, and database
 

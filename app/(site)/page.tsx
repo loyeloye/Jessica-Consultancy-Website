@@ -34,7 +34,7 @@ export default async function Home() {
           <SectionHeading
             eyebrow="Selected Work"
             title="Campaigns coordinated, styled, and cast."
-            description="A sample of the commercial, fashion, and lifestyle campaigns Jessica has helped bring to set and to screen."
+            description="A sample of the commercial, fashion, and lifestyle campaigns Summer Et Al has helped bring to set and to screen."
           />
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {campaigns.map((c) => (
@@ -65,7 +65,7 @@ export default async function Home() {
       <section className="border-b border-line bg-ink-soft py-20 sm:py-28">
         <Container>
           <SectionHeading
-            eyebrow="How Jessica Can Help"
+            eyebrow="How Summer Et Al Can Help"
             title="Production, talent, direction, and strategy."
           />
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -26,7 +26,7 @@ export default async function WorkPage() {
             Campaigns coordinated, cast, and directed.
           </h1>
           <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Across {sectors.join(", ").toLowerCase()}, Jessica has supported 25+
+            Across {sectors.join(", ").toLowerCase()}, Summer Et Al has supported 25+
             commercial shoots and sourced 75+ talent for brands operating across the
             Middle East, Asia, and internationally.
           </p>

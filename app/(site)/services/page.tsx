@@ -19,7 +19,7 @@ export default function ServicesPage() {
             Production, talent, and direction — one point of contact.
           </h1>
           <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Four ways to work with Jessica, from full production coordination to a
+            Four ways to work with Summer Et Al, from full production coordination to a
             single talent booking, to strategic guidance for brands entering the
             Dubai market.
           </p>
