@@ -109,12 +109,22 @@ export const services = [
       {
         phase: "Focus areas",
         items: [
-          "Procurement & product strategy",
           "Retail expansion planning",
           "Brand acquisition & partnerships",
           "Marketing & visibility strategy",
           "Market & audience expansion",
           "Dubai image & industry influence",
+        ],
+      },
+      {
+        phase: "Product Sourcing & Procurement",
+        items: [
+          "Fashion, beauty & lifestyle product sourcing",
+          "Supplier & manufacturer identification",
+          "Product research & market-fit assessment",
+          "Pricing & MOQ negotiation",
+          "Sample coordination & evaluation",
+          "Import & logistics coordination",
         ],
       },
     ],
@@ -324,6 +334,10 @@ export const highlights: SiteImage[] = [
   { src: "/images/highlights/06.webp", alt: "Family lifestyle campaign scenario" },
   { src: "/images/highlights/07.webp", alt: "Street-style lifestyle campaign scenario" },
   { src: "/images/highlights/08.webp", alt: "Studio lighting setup on a production day" },
+  { src: "/images/highlights/09.webp", alt: "Lifestyle scenario — family cycling along a Dubai community path" },
+  { src: "/images/highlights/10.webp", alt: "Event styling — guest at a Huda Beauty brand event" },
+  { src: "/images/highlights/11.webp", alt: "Event styling — leather coat look at a Huda Beauty brand event" },
+  { src: "/images/highlights/12.webp", alt: "Brand activation staging at a Huda Beauty event" },
 ];
 
 export const projectTypes = [

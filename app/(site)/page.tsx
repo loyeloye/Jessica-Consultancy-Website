@@ -54,10 +54,27 @@ export default async function Home() {
               </Link>
             ))}
           </div>
-          <div className="mt-10">
-            <MagneticButton href="/work" variant="outline">
-              View all work
-            </MagneticButton>
+          <div className="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="w-full max-w-[220px] overflow-hidden rounded-sm border border-line sm:max-w-[180px]">
+              <video
+                className="aspect-[9/16] w-full bg-ink-soft object-cover"
+                src="/videos/selected-work-reel.mp4"
+                poster="/videos/selected-work-reel-poster.jpg"
+                controls
+                playsInline
+                preload="none"
+              >
+                Your browser does not support embedded video.
+              </video>
+            </div>
+            <div className="flex flex-1 flex-col items-center gap-4 text-center sm:items-start sm:text-left">
+              <p className="max-w-sm text-sm leading-relaxed text-paper/70">
+                A quick look behind the scenes, from set coordination to the final cut.
+              </p>
+              <MagneticButton href="/work" variant="outline">
+                View all work
+              </MagneticButton>
+            </div>
           </div>
         </Container>
       </section>
