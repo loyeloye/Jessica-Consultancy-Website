@@ -116,8 +116,18 @@ export const services = [
           "Dubai image & industry influence",
         ],
       },
+    ],
+    note: "Currently engaged as a strategic growth consultant for a Nigerian luxury retail group expanding into new markets.",
+  },
+  {
+    slug: "product-sourcing-procurement",
+    title: "Product Sourcing & Procurement",
+    short:
+      "Sourcing and procurement support for fashion, beauty, and lifestyle brands — from supplier identification through to import-ready delivery.",
+    icon: "package",
+    breakdown: [
       {
-        phase: "Product Sourcing & Procurement",
+        phase: "What's included",
         items: [
           "Fashion, beauty & lifestyle product sourcing",
           "Supplier & manufacturer identification",
@@ -128,7 +138,6 @@ export const services = [
         ],
       },
     ],
-    note: "Currently engaged as a strategic growth consultant for a Nigerian luxury retail group expanding into new markets.",
   },
 ];
 

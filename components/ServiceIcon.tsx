@@ -1,4 +1,4 @@
-type IconName = "clapperboard" | "users" | "sparkles" | "trending-up";
+type IconName = "clapperboard" | "users" | "sparkles" | "trending-up" | "package";
 
 const paths: Record<IconName, React.ReactNode> = {
   clapperboard: (
@@ -28,6 +28,13 @@ const paths: Record<IconName, React.ReactNode> = {
     <>
       <path d="m3 17 6-6 4 4 8-8" />
       <path d="M15 7h6v6" />
+    </>
+  ),
+  package: (
+    <>
+      <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+      <path d="m3 8 9 5 9-5" />
+      <path d="M12 13v8" />
     </>
   ),
 };
