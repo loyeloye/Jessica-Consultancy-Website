@@ -1,19 +1,16 @@
 /**
- * Slow, seamless auto-scrolling strip of client names. The list is
- * rendered twice back-to-back and the whole track is animated exactly
- * -50% (one copy's width), so the loop point is invisible.
+ * Static row of client names. Was an auto-scrolling marquee, but with
+ * only a handful of clients the loop looked unbalanced — a centered,
+ * evenly-spaced row reads cleaner until there are enough names to
+ * justify motion again (bring back .animate-marquee from globals.css
+ * on the wrapper below when that day comes).
  */
 export function ClientMarquee({ clients }: { clients: string[] }) {
-  const track = [...clients, ...clients];
-
   return (
-    <div className="overflow-hidden border-b border-line bg-ink-soft py-6" aria-hidden="true">
-      <div className="animate-marquee flex w-max items-center gap-16">
-        {track.map((name, i) => (
-          <span
-            key={`${name}-${i}`}
-            className="font-display shrink-0 text-lg text-paper/35 sm:text-xl"
-          >
+    <div className="border-b border-line bg-ink-soft py-10">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-5 sm:px-8">
+        {clients.map((name) => (
+          <span key={name} className="font-display text-xl text-paper sm:text-2xl">
             {name}
           </span>
         ))}

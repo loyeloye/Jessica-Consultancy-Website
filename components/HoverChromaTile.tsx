@@ -123,7 +123,7 @@ export function HoverChromaTile({
       {showCursorLabel && cursor && (
         <div
           aria-hidden
-          className="pointer-events-none absolute z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#f7f1e6] px-4 py-2 text-xs font-medium uppercase tracking-wider text-ink opacity-0 transition-opacity duration-150 sm:group-hover:flex sm:group-hover:opacity-100"
+          className="pointer-events-none absolute z-10 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 scale-75 items-center justify-center rounded-full bg-accent text-[10px] font-medium uppercase tracking-wider text-ink opacity-0 transition-all duration-200 ease-out sm:group-hover:flex sm:group-hover:scale-100 sm:group-hover:opacity-100"
           style={{ left: cursor.x, top: cursor.y }}
         >
           {cursorLabel}
