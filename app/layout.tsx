@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { getSettings } from "@/lib/content";
 
@@ -18,9 +19,28 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
+  const title = `${settings.name} — ${settings.tagline}`;
+
   return {
-    title: `${settings.name} — ${settings.tagline}`,
+    metadataBase: new URL("https://summeretal.com"),
+    title: {
+      template: `%s — ${settings.name}`,
+      default: title,
+    },
     description: settings.metaDescription,
+    openGraph: {
+      title,
+      description: settings.metaDescription,
+      url: "https://summeretal.com",
+      siteName: settings.name,
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: settings.metaDescription,
+    },
   };
 }
 
@@ -31,7 +51,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-ink text-paper">{children}</body>
+      <body className="flex min-h-full flex-col bg-ink text-paper">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
