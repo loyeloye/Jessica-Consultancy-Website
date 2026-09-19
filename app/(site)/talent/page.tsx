@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { RegistrationTabs } from "@/components/forms/RegistrationTabs";
+import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -12,10 +13,12 @@ export default function TalentPage() {
   return (
     <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
       <Container className="max-w-2xl">
-        <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Registration</p>
-        <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-          Join Summer Et Al&apos;s network.
-        </h1>
+        <Reveal>
+          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Registration</p>
+          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
+            Join Summer Et Al&apos;s network.
+          </h1>
+        </Reveal>
 
         <div className="mt-12">
           <RegistrationTabs />
