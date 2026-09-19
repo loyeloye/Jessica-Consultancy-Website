@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Logo } from "@/components/Logo";
 
 const baseLinks = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
@@ -29,7 +31,11 @@ export function SiteHeader({ name, showBlog }: { name: string; showBlog: boolean
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="focus-ring font-display text-xl tracking-tight text-paper">
+        <Link
+          href="/"
+          className="focus-ring flex items-center gap-2 font-display text-xl tracking-tight text-paper"
+        >
+          <Logo className="h-5 w-5 shrink-0 text-accent" />
           {name}
         </Link>
 
