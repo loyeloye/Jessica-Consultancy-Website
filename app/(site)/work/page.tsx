@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { MagneticButton } from "@/components/MagneticButton";
+import { Reveal } from "@/components/Reveal";
 import { getCampaigns, getHighlights, getSettings } from "@/lib/content";
 import { sectors } from "@/content/site";
 
@@ -21,23 +22,26 @@ export default async function WorkPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Work</p>
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-            Campaigns coordinated, cast, and directed.
-          </h1>
-          <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Across {sectors.join(", ").toLowerCase()}, Summer Et Al has supported 25+
-            commercial shoots and sourced 75+ talent for brands operating across the
-            Middle East, Asia, and internationally.
-          </p>
+          <Reveal>
+            <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Work</p>
+            <h1 className="font-display text-4xl leading-tight sm:text-5xl">
+              Campaigns coordinated, cast, and directed.
+            </h1>
+            <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
+              Across {sectors.join(", ").toLowerCase()}, Summer Et Al has supported 25+
+              commercial shoots and sourced 75+ talent for brands operating across the
+              Middle East, Asia, and internationally.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
       <section className="border-b border-line bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container className="space-y-20">
           {campaigns.map((c, i) => (
-            <article
+            <Reveal
               key={c.slug}
+              as="article"
               id={c.slug}
               className="scroll-mt-24 border-b border-line pb-20 last:border-b-0 last:pb-0"
             >
@@ -137,27 +141,25 @@ export default async function WorkPage() {
                   ))}
                 </div>
               )}
-            </article>
+            </Reveal>
           ))}
         </Container>
       </section>
 
       <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container>
-          <SectionHeading
-            eyebrow="Highlights"
-            title="More from the archive."
-            description="Selected frames from commercial, fashion, beauty, and lifestyle productions."
-          />
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {highlights.map((img) => (
-              <HoverChromaTile
-                key={img.src}
-                src={img.src}
-                alt={img.alt}
-                aspect="aspect-square"
-                sizes="(max-width: 640px) 50vw, 25vw"
-              />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Highlights"
+              title="More from the archive."
+              description="Selected frames from commercial, fashion, beauty, and lifestyle productions."
+            />
+          </Reveal>
+          <div className="mt-10 columns-2 gap-4 sm:columns-3 lg:columns-4">
+            {highlights.map((img, i) => (
+              <Reveal key={img.src} delay={(i % 4) * 80} className="mb-4 break-inside-avoid">
+                <HoverChromaTile src={img.src} alt={img.alt} fill={false} />
+              </Reveal>
             ))}
           </div>
         </Container>

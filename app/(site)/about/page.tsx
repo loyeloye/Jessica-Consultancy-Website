@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { MagneticButton } from "@/components/MagneticButton";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
+import { Reveal } from "@/components/Reveal";
 import {
   aboutHighlights,
   aboutConsultingNote,
@@ -21,7 +22,7 @@ export default function AboutPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="grid grid-cols-1 items-start gap-12 min-[700px]:grid-cols-[1.3fr_1fr]">
-          <div>
+          <Reveal>
             <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">About</p>
             <h1 className="font-display text-4xl leading-tight sm:text-5xl">
               A calm, organized hand behind ambitious shoots.
@@ -38,23 +39,27 @@ export default function AboutPage() {
               Her work spans {sectors.join(", ").toLowerCase()}, for clients ranging
               from international banks to fashion houses and lifestyle brands.
             </p>
-          </div>
-          <HoverChromaTile
-            src={aboutPortrait.src}
-            alt={aboutPortrait.alt}
-            aspect="aspect-[4/5]"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            priority
-          />
+          </Reveal>
+          <Reveal delay={150}>
+            <HoverChromaTile
+              src={aboutPortrait.src}
+              alt={aboutPortrait.alt}
+              aspect="aspect-[4/5]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              priority
+            />
+          </Reveal>
         </Container>
       </section>
 
       <section className="border-b border-line bg-ink-soft py-20 sm:py-24 lg:py-28">
         <Container>
-          <SectionHeading eyebrow="Career Highlights" title="Where Jessica adds the most value." />
+          <Reveal>
+            <SectionHeading eyebrow="Career Highlights" title="Where Jessica adds the most value." />
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {aboutHighlights.map((group) => (
-              <div key={group.title} className="rounded-sm border border-line bg-ink p-6">
+            {aboutHighlights.map((group, i) => (
+              <Reveal key={group.title} delay={i * 100} className="rounded-sm border border-line bg-ink p-6">
                 <h3 className="font-display text-lg text-accent">{group.title}</h3>
                 <ul className="mt-4 space-y-3 text-sm leading-relaxed text-paper/75">
                   {group.items.map((item) => (
@@ -64,7 +69,7 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -72,26 +77,30 @@ export default function AboutPage() {
 
       <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.25em] text-accent">Beyond Production</p>
-          <h2 className="font-display text-2xl sm:text-3xl">Strategic & Growth Consulting</h2>
-          <p className="mt-5 text-base leading-relaxed text-paper/75">{aboutConsultingNote}</p>
-          <p className="mt-4 text-base leading-relaxed text-paper/75">
-            It&apos;s a natural extension of her Dubai fashion, retail, and production
-            network — and a service line she&apos;s opening up for other brands
-            considering the same move.
-          </p>
+          <Reveal>
+            <p className="mb-3 text-xs uppercase tracking-[0.25em] text-accent">Beyond Production</p>
+            <h2 className="font-display text-2xl sm:text-3xl">Strategic & Growth Consulting</h2>
+            <p className="mt-5 text-base leading-relaxed text-paper/75">{aboutConsultingNote}</p>
+            <p className="mt-4 text-base leading-relaxed text-paper/75">
+              It&apos;s a natural extension of her Dubai fashion, retail, and production
+              network — and a service line she&apos;s opening up for other brands
+              considering the same move.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-ink-soft py-16">
         <Container className="flex flex-col items-center gap-6 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl">Ready to work together?</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <MagneticButton href="/book">Book a Production</MagneticButton>
-            <MagneticButton href="/services" variant="outline">
-              See Services
-            </MagneticButton>
-          </div>
+          <Reveal className="flex flex-col items-center gap-6">
+            <h2 className="font-display text-2xl sm:text-3xl">Ready to work together?</h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              <MagneticButton href="/book">Book a Production</MagneticButton>
+              <MagneticButton href="/services" variant="outline">
+                See Services
+              </MagneticButton>
+            </div>
+          </Reveal>
         </Container>
       </section>
     </>

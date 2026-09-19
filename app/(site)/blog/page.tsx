@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
+import { Reveal } from "@/components/Reveal";
 import { getPublishedPosts, getSettings } from "@/lib/content";
 import { excerptFrom } from "@/lib/markdown";
 
@@ -29,14 +30,16 @@ export default async function BlogIndexPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Journal</p>
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-            Notes from set and beyond.
-          </h1>
-          <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Thoughts on production, casting, creative direction, and building a brand in the
-            Dubai market.
-          </p>
+          <Reveal>
+            <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Journal</p>
+            <h1 className="font-display text-4xl leading-tight sm:text-5xl">
+              Notes from set and beyond.
+            </h1>
+            <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
+              Thoughts on production, casting, creative direction, and building a brand in the
+              Dubai market.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
@@ -48,8 +51,8 @@ export default async function BlogIndexPage() {
             </p>
           ) : (
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <article key={post.id}>
+              {posts.map((post, i) => (
+                <Reveal key={post.id} as="article" delay={(i % 3) * 100}>
                   <Link
                     href={`/blog/${post.slug}`}
                     className="focus-ring group block"
@@ -63,6 +66,8 @@ export default async function BlogIndexPage() {
                         sizes="(max-width: 640px) 100vw, 33vw"
                         unoptimized
                         className="mb-5"
+                        showCursorLabel
+                        cursorLabel="Read"
                       />
                     )}
                     {post.publishedAt && (
@@ -83,7 +88,7 @@ export default async function BlogIndexPage() {
                       </span>
                     </span>
                   </Link>
-                </article>
+                </Reveal>
               ))}
             </div>
           )}

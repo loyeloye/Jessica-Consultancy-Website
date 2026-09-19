@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { MagneticButton } from "@/components/MagneticButton";
 import { ServiceIcon } from "@/components/ServiceIcon";
+import { Reveal } from "@/components/Reveal";
 import { services, siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -14,15 +15,17 @@ export default function ServicesPage() {
     <>
       <section className="grain border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container className="max-w-3xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Services</p>
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-            Production, talent, and direction — one point of contact.
-          </h1>
-          <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-            Four ways to work with Summer Et Al, from full production coordination to a
-            single talent booking, to strategic guidance for brands entering the
-            Dubai market.
-          </p>
+          <Reveal>
+            <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">Services</p>
+            <h1 className="font-display text-4xl leading-tight sm:text-5xl">
+              Production, talent, and direction — one point of contact.
+            </h1>
+            <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
+              Four ways to work with Summer Et Al, from full production coordination to a
+              single talent booking, to strategic guidance for brands entering the
+              Dubai market.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
@@ -35,7 +38,7 @@ export default function ServicesPage() {
           }`}
         >
           <Container>
-            <div className="grid grid-cols-1 gap-10 min-[700px]:grid-cols-[minmax(0,320px)_1fr]">
+            <Reveal className="grid grid-cols-1 gap-10 min-[700px]:grid-cols-[minmax(0,320px)_1fr]">
               <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent">
                   <ServiceIcon name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up"} className="h-5 w-5" />
@@ -77,7 +80,7 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </Container>
         </section>
       ))}

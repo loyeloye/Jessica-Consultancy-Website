@@ -13,6 +13,13 @@ type Props = {
   sizes?: string;
   priority?: boolean;
   unoptimized?: boolean;
+  /** false lets the image keep its natural aspect ratio instead of filling a
+   * fixed box — used for the masonry-style archive grid. */
+  fill?: boolean;
+  /** Shows a small pill that follows the cursor on hover (desktop only),
+   * for tiles that act as links to more content. */
+  showCursorLabel?: boolean;
+  cursorLabel?: string;
 };
 
 /**
@@ -38,8 +45,12 @@ export function HoverChromaTile({
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   priority = false,
   unoptimized = false,
+  fill = true,
+  showCursorLabel = false,
+  cursorLabel = "View",
 }: Props) {
   const [revealed, setRevealed] = useState(false);
+  const [cursor, setCursor] = useState<{ x: number; y: number } | null>(null);
 
   function handleClick(e: MouseEvent<HTMLDivElement>) {
     if (revealed) return;
@@ -48,28 +59,46 @@ export function HoverChromaTile({
     setRevealed(true);
   }
 
+  function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
+    if (!showCursorLabel) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }
+
+  const imageClass = `w-full object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0 ${
+    revealed ? "scale-[1.04] grayscale-0" : ""
+  }`;
+
   return (
     <div
       onClick={handleClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setCursor(null)}
       // Without this, two taps close together can be read as a double-tap-
       // to-zoom gesture instead of two clicks, which would swallow the
       // second tap that's supposed to navigate.
       style={{ touchAction: "manipulation" }}
-      className={`group relative ${aspect} w-full overflow-hidden rounded-sm bg-ink-soft ${className}`}
+      className={`group relative ${fill ? aspect : ""} w-full overflow-hidden rounded-sm bg-ink-soft ${className}`}
     >
       {src ? (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          loading={priority ? undefined : "lazy"}
-          unoptimized={unoptimized}
-          className={`object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:grayscale-0 ${
-            revealed ? "scale-[1.04] grayscale-0" : ""
-          }`}
-        />
+        fill ? (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes={sizes}
+            priority={priority}
+            loading={priority ? undefined : "lazy"}
+            unoptimized={unoptimized}
+            className={imageClass}
+          />
+        ) : (
+          // Natural (non-fill) sizing so the image keeps its own aspect
+          // ratio — next/image needs known dimensions for that, which we
+          // don't store per archive photo, so a plain <img> is simplest.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt={alt} loading="lazy" className={`${imageClass} h-auto`} />
+        )
       ) : (
         // A campaign saved without a hero image yet — keep the layout intact
         // rather than crashing on an empty next/image src.
@@ -90,6 +119,15 @@ export function HoverChromaTile({
             )}
           </div>
         </>
+      )}
+      {showCursorLabel && cursor && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#f7f1e6] px-4 py-2 text-xs font-medium uppercase tracking-wider text-ink opacity-0 transition-opacity duration-150 sm:group-hover:flex sm:group-hover:opacity-100"
+          style={{ left: cursor.x, top: cursor.y }}
+        >
+          {cursorLabel}
+        </div>
       )}
     </div>
   );
