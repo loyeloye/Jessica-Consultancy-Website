@@ -31,7 +31,7 @@ export default async function Home() {
         </Container>
       </section>
 
-      <ClientMarquee clients={campaigns.map((c) => c.client)} />
+      <ClientMarquee clients={[...campaigns.map((c) => c.client), "Huda Beauty"]} />
 
       <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container>
