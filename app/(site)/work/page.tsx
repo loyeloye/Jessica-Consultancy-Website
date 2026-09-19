@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { HoverChromaTile } from "@/components/HoverChromaTile";
 import { MagneticButton } from "@/components/MagneticButton";
 import { Reveal } from "@/components/Reveal";
+import { ArchiveGallery } from "@/components/ArchiveGallery";
 import { getCampaigns, getHighlights, getSettings } from "@/lib/content";
 import { sectors } from "@/content/site";
 
@@ -155,13 +156,7 @@ export default async function WorkPage() {
               description="Selected frames from commercial, fashion, beauty, and lifestyle productions."
             />
           </Reveal>
-          <div className="mt-10 columns-2 gap-4 sm:columns-3 lg:columns-4">
-            {highlights.map((img, i) => (
-              <Reveal key={img.src} delay={(i % 4) * 80} className="mb-4 break-inside-avoid">
-                <HoverChromaTile src={img.src} alt={img.alt} fill={false} />
-              </Reveal>
-            ))}
-          </div>
+          <ArchiveGallery images={highlights} />
         </Container>
       </section>
 

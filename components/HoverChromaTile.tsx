@@ -56,6 +56,7 @@ export function HoverChromaTile({
     if (revealed) return;
     if (!window.matchMedia("(hover: none)").matches) return;
     e.preventDefault();
+    e.stopPropagation();
     setRevealed(true);
   }
 
