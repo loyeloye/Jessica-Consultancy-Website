@@ -41,7 +41,10 @@ export default function ServicesPage() {
             <Reveal className="grid grid-cols-1 gap-10 min-[700px]:grid-cols-[minmax(0,320px)_1fr]">
               <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent">
-                  <ServiceIcon name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up"} className="h-5 w-5" />
+                  <ServiceIcon
+                    name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up" | "package"}
+                    className="h-5 w-5"
+                  />
                 </div>
                 <h2 className="font-display mt-5 text-2xl sm:text-3xl">{service.title}</h2>
                 <p className="mt-4 text-sm leading-relaxed text-paper/70">{service.short}</p>

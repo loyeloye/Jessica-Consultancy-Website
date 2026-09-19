@@ -66,7 +66,7 @@ export default async function Home() {
             delay={150}
             className="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between"
           >
-            <div className="w-full max-w-[220px] overflow-hidden rounded-sm border border-line sm:max-w-[180px]">
+            <div className="w-full max-w-[280px] overflow-hidden rounded-sm border border-line sm:max-w-[240px]">
               <video
                 className="aspect-[9/16] w-full bg-ink-soft object-cover"
                 src="/videos/selected-work-reel.mp4"
@@ -80,7 +80,7 @@ export default async function Home() {
             </div>
             <div className="flex flex-1 flex-col items-center gap-4 text-center sm:items-start sm:text-left">
               <p className="max-w-sm text-sm leading-relaxed text-paper/70">
-                A quick look behind the scenes, from set coordination to the final cut.
+                A sample of shoots directed and managed by Summer Et Al.
               </p>
               <MagneticButton href="/work" variant="outline">
                 View all work
@@ -98,7 +98,7 @@ export default async function Home() {
               title="Production, talent, direction, and strategy."
             />
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 80}>
                 <Link
