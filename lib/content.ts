@@ -173,7 +173,11 @@ export async function getPublishedPosts(): Promise<Post[]> {
     .eq("status", "published")
     .order("published_at", { ascending: false, nullsFirst: false });
 
-  if (error || !data) return [];
+  if (error) {
+    console.error("getPublishedPosts: Supabase query failed", error);
+    return [];
+  }
+  if (!data) return [];
   return (data as PostRow[]).map(toPost);
 }
 
@@ -188,7 +192,11 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     .eq("status", "published")
     .maybeSingle();
 
-  if (error || !data) return null;
+  if (error) {
+    console.error(`getPostBySlug(${slug}): Supabase query failed`, error);
+    return null;
+  }
+  if (!data) return null;
   return toPost(data as PostRow);
 }
 
@@ -202,5 +210,9 @@ export async function hasPublishedPosts(): Promise<boolean> {
     .select("id", { count: "exact", head: true })
     .eq("status", "published");
 
-  return !error && (count ?? 0) > 0;
+  if (error) {
+    console.error("hasPublishedPosts: Supabase query failed", error);
+    return false;
+  }
+  return (count ?? 0) > 0;
 }
