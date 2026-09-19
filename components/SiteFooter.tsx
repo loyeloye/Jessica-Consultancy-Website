@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/content/site";
+import { Logo } from "@/components/Logo";
 import type { SiteSettings } from "@/lib/content";
 
 export function SiteFooter({
@@ -22,7 +23,10 @@ export function SiteFooter({
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-14 sm:px-8 md:pb-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="font-display text-xl text-paper">{settings.name}</p>
+            <p className="flex items-center gap-2 font-display text-xl text-paper">
+              <Logo className="h-5 w-5 shrink-0 text-accent" />
+              {settings.name}
+            </p>
             <p className="mt-2 max-w-xs text-sm text-paper/60">{settings.tagline}</p>
           </div>
 
