@@ -19,7 +19,7 @@ export function SiteFooter({
 
   return (
     <footer className="border-t border-line bg-ink">
-      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+      <div className="mx-auto max-w-6xl px-5 pb-24 pt-14 sm:px-8 md:pb-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <p className="font-display text-xl text-paper">{settings.name}</p>
@@ -67,11 +67,19 @@ export function SiteFooter({
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {siteConfig.fullName}. All rights reserved.
           </p>
-          <p>{settings.location}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/privacy" className="focus-ring hover:text-accent">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="focus-ring hover:text-accent">
+              Terms of Service
+            </Link>
+            <span>{settings.location}</span>
+          </div>
         </div>
       </div>
     </footer>
