@@ -52,7 +52,7 @@ export default async function ContactPage() {
                   rel="noopener noreferrer"
                   className="focus-ring text-lg text-paper hover:text-accent"
                 >
-                  jessica-chukwu
+                  Connect on LinkedIn
                 </a>
               </dd>
             </div>
