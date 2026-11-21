@@ -354,6 +354,21 @@ export const campaigns: Campaign[] = [
   },
 ];
 
+export type ClientLogo = { name: string; logo?: { src: string; width: number; height: number } };
+
+/**
+ * Brands shown in the homepage client row. Independent of `campaigns` —
+ * not every client here has a full case study, and not every campaign
+ * client necessarily belongs here.
+ */
+export const clients: ClientLogo[] = [
+  { name: "Standard Chartered", logo: { src: "/images/logos/standard-chartered.webp", width: 1894, height: 757 } },
+  { name: "Olarsgrace", logo: { src: "/images/logos/olarsgrace.webp", width: 957, height: 550 } },
+  { name: "OH Mobility", logo: { src: "/images/logos/oh-mobility.webp", width: 653, height: 357 } },
+  { name: "flydubai", logo: { src: "/images/logos/flydubai.webp", width: 2000, height: 406 } },
+  { name: "Huda Beauty" },
+];
+
 export const highlights: SiteImage[] = [
   { src: "/images/highlights/01.webp", alt: "Studio editorial — tailored suiting on set" },
   { src: "/images/highlights/02.webp", alt: "Low-key beauty and jewellery editorial" },

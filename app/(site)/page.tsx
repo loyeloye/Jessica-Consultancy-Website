@@ -7,7 +7,7 @@ import { MagneticButton } from "@/components/MagneticButton";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { Reveal } from "@/components/Reveal";
 import { getCampaigns, getSettings } from "@/lib/content";
-import { services } from "@/content/site";
+import { clients, services } from "@/content/site";
 
 export default async function Home() {
   const [settings, campaigns] = await Promise.all([getSettings(), getCampaigns()]);
@@ -31,9 +31,7 @@ export default async function Home() {
         </Container>
       </section>
 
-      <ClientMarquee
-        clients={[...campaigns.map((c) => ({ name: c.client })), { name: "Huda Beauty" }]}
-      />
+      <ClientMarquee clients={clients} />
 
       <section className="border-b border-line bg-ink py-20 sm:py-24 lg:py-28">
         <Container>
