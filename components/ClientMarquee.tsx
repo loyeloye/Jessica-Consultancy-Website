@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export type MarqueeClient = { name: string; logo?: string };
+export type MarqueeClient = { name: string; logo?: { src: string; width: number; height: number } };
 
 /**
  * Static row of client names/logos. Was an auto-scrolling marquee, but with
@@ -20,10 +20,10 @@ export function ClientMarquee({ clients }: { clients: MarqueeClient[] }) {
           client.logo ? (
             <Image
               key={client.name}
-              src={client.logo}
+              src={client.logo.src}
               alt={client.name}
-              width={140}
-              height={44}
+              width={client.logo.width}
+              height={client.logo.height}
               className="h-7 w-auto object-contain opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-8"
             />
           ) : (
