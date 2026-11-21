@@ -21,9 +21,9 @@ export default function ServicesPage() {
               Production, talent, and direction — one point of contact.
             </h1>
             <p className="mt-6 text-base leading-relaxed text-paper/75 sm:text-lg">
-              Four ways to work with Summer Et Al, from full production coordination to a
-              single talent booking, to strategic guidance for brands entering the
-              Dubai market.
+              From talent representation and brand partnerships to full production
+              coordination, creative direction, and strategic guidance for brands entering
+              the Dubai market.
             </p>
           </Reveal>
         </Container>
@@ -42,7 +42,15 @@ export default function ServicesPage() {
               <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 text-accent">
                   <ServiceIcon
-                    name={service.icon as "clapperboard" | "users" | "sparkles" | "trending-up" | "package"}
+                    name={
+                      service.icon as
+                        | "clapperboard"
+                        | "users"
+                        | "sparkles"
+                        | "trending-up"
+                        | "package"
+                        | "handshake"
+                    }
                     className="h-5 w-5"
                   />
                 </div>

@@ -1,4 +1,4 @@
-type IconName = "clapperboard" | "users" | "sparkles" | "trending-up" | "package";
+type IconName = "clapperboard" | "users" | "sparkles" | "trending-up" | "package" | "handshake";
 
 const paths: Record<IconName, React.ReactNode> = {
   clapperboard: (
@@ -35,6 +35,14 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
       <path d="m3 8 9 5 9-5" />
       <path d="M12 13v8" />
+    </>
+  ),
+  handshake: (
+    <>
+      <path d="M2 12.5 6 9l3.5 3-1.2 1.2a1.7 1.7 0 0 0 2.4 2.4L15 11.3 22 12.5" />
+      <path d="M9.5 12 13 8.5a2 2 0 0 1 2.8 0L18 10.7" />
+      <path d="m2 12.5 3 4.5 2-1" />
+      <path d="m22 12.5-3 4.5-2.2-1.3" />
     </>
   ),
 };

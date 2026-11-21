@@ -60,21 +60,41 @@ export const services = [
     ],
   },
   {
-    slug: "talent-booking",
-    title: "Talent Booking",
+    slug: "talent-representation-management",
+    title: "Talent Representation & Management",
     short:
-      "Sourcing and booking models, actors, presenters, and lifestyle talent — with an established roster across the Middle East and internationally.",
+      "Representing and developing a select roster of talent across fashion, entertainment, lifestyle and creative industries.",
     icon: "users",
     breakdown: [
       {
         phase: "What's included",
         items: [
-          "Talent sourcing and casting against brief",
-          "Booking and contract coordination",
-          "Roster and availability management",
-          "Talent logistics and scheduling",
-          "On-set talent management and welfare",
-          "Access to 1,000+ UAE and international talent",
+          "Talent scouting and onboarding",
+          "Career development and positioning",
+          "Client enquiries, negotiations and bookings",
+          "Contract and fee coordination",
+          "Shoot, campaign and appearance coordination",
+          "Building relationships with agencies, casting directors and clients",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "brand-partnerships-collaborations",
+    title: "Brand Partnerships & Collaborations",
+    short:
+      "Connecting brands with the right talent, creatives and commercial opportunities to create meaningful collaborations.",
+    icon: "handshake",
+    breakdown: [
+      {
+        phase: "What's included",
+        items: [
+          "Talent-led brand campaigns",
+          "Brand ambassador partnerships",
+          "Creative collaborations",
+          "Campaign talent sourcing and casting",
+          "Partnership development and coordination",
+          "Negotiating and managing collaboration opportunities",
         ],
       },
     ],
@@ -351,7 +371,8 @@ export const highlights: SiteImage[] = [
 
 export const projectTypes = [
   "Production Coordination",
-  "Talent Booking",
+  "Talent Representation & Management",
+  "Brand Partnerships & Collaborations",
   "Creative Direction",
   "Strategic Consulting",
 ] as const;
