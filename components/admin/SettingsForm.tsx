@@ -157,7 +157,6 @@ export function SettingsForm({ settings }: { settings: SiteSettings }) {
             defaultValue={settings.phoneHref}
             hint="Digits and + only, e.g. +971588979350."
           />
-          <Text id="linkedin" label="LinkedIn URL" defaultValue={settings.linkedin} />
           <Text id="location" label="Location" defaultValue={settings.location} />
         </div>
       </section>

@@ -6,9 +6,8 @@ export const siteConfig = {
   metaDescription:
     "Summer Et Al is a Dubai-based production coordination, talent booking, and creative direction studio for commercial, fashion, and editorial shoots — also available for strategic growth consulting.",
   email: "jaychukwu18@gmail.com",
-  phone: "+971 58 897 9350",
-  phoneHref: "+971588979350",
-  linkedin: "https://www.linkedin.com/in/jessica-chukwu-661974358",
+  phone: "+971 54 560 5237",
+  phoneHref: "+971545605237",
   location: "Dubai, UAE",
 };
 
@@ -20,11 +19,6 @@ export const stats = [
 
 export const heroCredibilityLine =
   "Trusted across banking, fashion, and lifestyle brands — with an active network of 1,000+ UAE and international talent, and a growing footprint in Dubai's fashion and retail industry.";
-
-export const aboutPortrait = {
-  src: "/images/about/portrait.webp",
-  alt: "Editorial portrait from Jessica's portfolio",
-};
 
 export const services = [
   {
@@ -192,7 +186,7 @@ export const aboutHighlights = [
 ];
 
 export const aboutConsultingNote =
-  "Alongside her production and talent work, Jessica also operates as a Strategic Growth Consultant, currently engaged on a 12-month retail consultancy with a Lagos-based luxury retail group expanding its brand influence into Dubai.";
+  "Alongside our production and talent work, we also operate as strategic growth consultants, currently engaged on a 12-month retail consultancy with a Lagos-based luxury retail group expanding its brand influence into Dubai.";
 
 export const sectors = [
   "Fashion editorials",
@@ -379,9 +373,6 @@ export const highlights: SiteImage[] = [
   { src: "/images/highlights/07.webp", alt: "Street-style lifestyle campaign scenario" },
   { src: "/images/highlights/08.webp", alt: "Studio lighting setup on a production day" },
   { src: "/images/highlights/09.webp", alt: "Lifestyle scenario — family cycling along a Dubai community path" },
-  { src: "/images/highlights/10.webp", alt: "Event styling — guest at a Huda Beauty brand event" },
-  { src: "/images/highlights/11.webp", alt: "Event styling — leather coat look at a Huda Beauty brand event" },
-  { src: "/images/highlights/12.webp", alt: "Brand activation staging at a Huda Beauty event" },
 ];
 
 export const projectTypes = [
