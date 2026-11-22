@@ -20,7 +20,6 @@ export type SiteSettings = {
   email: string;
   phone: string;
   phoneHref: string;
-  linkedin: string;
   location: string;
   heroHeadline: string;
   heroSubhead: string;
@@ -53,7 +52,6 @@ export const defaultSettings: SiteSettings = {
   email: staticSiteConfig.email,
   phone: staticSiteConfig.phone,
   phoneHref: staticSiteConfig.phoneHref,
-  linkedin: staticSiteConfig.linkedin,
   location: staticSiteConfig.location,
   heroHeadline: DEFAULT_HERO_HEADLINE,
   heroSubhead: DEFAULT_HERO_SUBHEAD,

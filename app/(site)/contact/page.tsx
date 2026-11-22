@@ -44,19 +44,6 @@ export default async function ContactPage() {
               </dd>
             </div>
             <div>
-              <dt className="uppercase tracking-wider text-paper/40">LinkedIn</dt>
-              <dd className="mt-1">
-                <a
-                  href={siteConfig.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring text-lg text-paper hover:text-accent"
-                >
-                  Connect on LinkedIn
-                </a>
-              </dd>
-            </div>
-            <div>
               <dt className="uppercase tracking-wider text-paper/40">Based in</dt>
               <dd className="mt-1 text-lg text-paper">{siteConfig.location}</dd>
             </div>

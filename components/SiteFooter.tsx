@@ -43,16 +43,6 @@ export function SiteFooter({
                   {settings.phone}
                 </a>
               </li>
-              <li>
-                <a
-                  href={settings.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring hover:text-accent"
-                >
-                  LinkedIn
-                </a>
-              </li>
               <li className="text-paper/50">{settings.location}</li>
             </ul>
           </div>

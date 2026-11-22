@@ -288,7 +288,6 @@ export async function saveSettings(
     email: str(formData.get("email")),
     phone: str(formData.get("phone")),
     phoneHref: str(formData.get("phoneHref")),
-    linkedin: str(formData.get("linkedin")),
     location: str(formData.get("location")),
     heroHeadline: str(formData.get("heroHeadline")),
     heroSubhead: str(formData.get("heroSubhead")),
