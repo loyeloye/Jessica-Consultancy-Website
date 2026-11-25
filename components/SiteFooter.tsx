@@ -33,16 +33,6 @@ export function SiteFooter({
           <div className="text-sm">
             <p className="mb-3 uppercase tracking-wider text-paper/40">Contact</p>
             <ul className="space-y-2 text-paper/80">
-              <li>
-                <a href={`mailto:${settings.email}`} className="focus-ring hover:text-accent">
-                  {settings.email}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${settings.phoneHref}`} className="focus-ring hover:text-accent">
-                  {settings.phone}
-                </a>
-              </li>
               <li className="text-paper/50">{settings.location}</li>
             </ul>
           </div>

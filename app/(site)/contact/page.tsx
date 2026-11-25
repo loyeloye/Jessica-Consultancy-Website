@@ -23,26 +23,10 @@ export default async function ContactPage() {
           <h1 className="font-display text-4xl leading-tight sm:text-5xl">Get in touch.</h1>
           <p className="mt-6 text-base leading-relaxed text-paper/70">
             For bookings and talent registration, use the dedicated forms — for
-            everything else, reach out directly or send a general message.
+            everything else, send a general message below.
           </p>
 
           <dl className="mt-10 space-y-6 text-sm">
-            <div>
-              <dt className="uppercase tracking-wider text-paper/40">Email</dt>
-              <dd className="mt-1">
-                <a href={`mailto:${siteConfig.email}`} className="focus-ring text-lg text-paper hover:text-accent">
-                  {siteConfig.email}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="uppercase tracking-wider text-paper/40">Phone / WhatsApp</dt>
-              <dd className="mt-1">
-                <a href={`tel:${siteConfig.phoneHref}`} className="focus-ring text-lg text-paper hover:text-accent">
-                  {siteConfig.phone}
-                </a>
-              </dd>
-            </div>
             <div>
               <dt className="uppercase tracking-wider text-paper/40">Based in</dt>
               <dd className="mt-1 text-lg text-paper">{siteConfig.location}</dd>
